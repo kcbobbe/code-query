@@ -30,6 +30,18 @@ module.exports = function(app) {
       });
   });
 
+  //route middleware for github login
+  app.get("/auth/github", passport.authenticate("github"));
+
+  app.get(
+    "/auth/github/callback",
+    passport.authenticate("github", { failureRedirect: "/login" }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect("/");
+    }
+  );
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
