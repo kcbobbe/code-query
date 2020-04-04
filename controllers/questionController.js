@@ -30,6 +30,7 @@ router.post("/api/questions", (req, res) => {
   db.Question.create(newQ)
     .then(data => {
       res.status(200).end();
+      console.log(data);
     })
     .catch(err => {
       console.log(err);
@@ -49,10 +50,12 @@ router.put("/api/questions/:id", (req, res) => {
   })
     .then(function(data) {
       res.status(200).end();
+      console.log(data);
     })
     .catch(err => {
       console.log(err);
       res.status(500).end();
+      console.log(data);
     });
 });
 
@@ -64,6 +67,7 @@ router.delete("/api/questions/:id", (req, res) => {
   })
     .then(function(data) {
       res.status(200).end();
+      console.log(data);
     })
     .catch(err => {
       console.log(err);
