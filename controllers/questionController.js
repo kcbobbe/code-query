@@ -7,7 +7,11 @@ db.Question.sync();
 
 router.get("/", (req, res) => {
   db.Question.findAll({ raw: true }).then(data => {
-    var handlebarbObject = [{ users: data }, { questions: data }, { answers: data }];
+    var handlebarbObject = [
+      { users: data },
+      { questions: data },
+      { answers: data }
+    ];
     res.render("index", handlebarbObject);
   });
 });
