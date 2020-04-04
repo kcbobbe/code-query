@@ -1,4 +1,4 @@
-const moment = require("moment");
+// const moment = require("moment");
 const express = requirer("express");
 const router = express.Router();
 const db = require("../models");
@@ -21,9 +21,9 @@ router.get("/api/questions/:id?", (req, res) => {
 
 router.post("/api/questions", (req, res) => {
   const newQ = {
-    question_text: req.body.question_text,
-    question_tag: req.body.question_tag,
-    user_id: req.body.user_id,
+    questionText: req.body.question_text,
+    questionTag: req.body.question_tag,
+    userId: req.body.user_id,
     date: req.body.date
   };
 
@@ -39,9 +39,9 @@ router.post("/api/questions", (req, res) => {
 
 router.put("/api/questions/:id", (req, res) => {
   const updQ = {
-    question_text: req.body.question_text,
-    question_tag: req.body.question_tag,
-    user_id: req.body.user_id,
+    questionText: req.body.question_text,
+    questionTag: req.body.question_tag,
+    userId: req.body.user_id,
     date: req.body.date
   };
   db.Question.update(updQ, {
