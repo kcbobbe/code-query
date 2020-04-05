@@ -11,8 +11,51 @@
     </div>
 </section>
 
-<div class= "card question">
+<div class="container">
 
+<div class= "columns">
+
+  <div class="column is-one-third">
+
+    <div class ="card search ">
+        <div class= "card title">Search:</div>
+
+        <div class="field">
+          <label class="label">Select Subject Area</label>
+          <div class="control">
+            <input class="input is-primary" type="text" placeholder="Question">
+            <br><br>
+            <button class="button is-primary submit">Submit</button>
+            <br>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <div class="column is-two-thirds">
+
+    <div class= "card askQuestion">
+      <div class= "card title"> Ask Your Question:</div>
+      <br>
+      <div class="field">
+        <div class="control">
+          <textarea class="textarea is-primary" placeholder="I need help with ..."></textarea>
+        </div>
+        <br>
+        <button class="button is-primary">Submit</button>
+        <br>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class= "card allQuestion">
+  <div class=" card title">Recently Asked Questions</div>
+  <br>
     <article class="media">
 
         {{#each question}}
@@ -24,30 +67,30 @@
 
     </article>
 
-</div>
-
           
-<div class= "card comment">
+  <div class= "card comment">
 
-  <article class="media">
-    <figure class="media-left">
-      <p class="image is-64x64">
-        <img src={{avatar}}>
-      </p>
-    </figure>
-    <div class="media-content">
-      <div class="field">
-        <p class="control">
-          <textarea class="textarea" placeholder="Add a comment..."></textarea>
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img src={{avatar}}>
         </p>
+      </figure>
+      <div class="media-content">
+        <div class="field">
+          <p class="control">
+            <textarea class="textarea" placeholder="Add a comment..."></textarea>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button class="button">Post comment</button>
+          </p>
+        </div>
       </div>
-      <div class="field">
-        <p class="control">
-          <button class="button">Post comment</button>
-        </p>
-      </div>
-    </div>
-  </article>
+    </article>
+
+</div>
 
 </div>
   
