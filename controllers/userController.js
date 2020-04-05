@@ -16,13 +16,13 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/login",(req, res)=>{
+router.get("/login", (req, res) => {
   db.User.findAll({ raw: true }).then(data => {
     res.render("login", { users: data });
   });
 });
 
-router.get("/signup", (req, res)=>{
+router.get("/signup", (req, res) => {
   db.User.findAll({ raw: true }).then(data => {
     res.render("signup", { users: data });
   });
