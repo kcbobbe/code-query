@@ -24,71 +24,69 @@
         <script type="text/javascript" src="js/login.js"></script>
        
 <!-- everything above will be deleted once in handlebars bc its in in the main.hb-->
-
-
-   <title>Mentor Match</title>
-
+        <title>Mentor Match</title>
+  </head>
   <body>
-   <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="#">
-        <img src="http://placehold.it" width="110" height="40">
-      </a>
-  
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item">
-          Home
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img src="http://placehold.it" width="110" height="40">
         </a>
-  
-        <a class="navbar-item" href="questions.html">
-          Questions
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-  
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" >
-            Question Categories
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Home
           </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              HTML
+    
+          <a class="navbar-item" href="questions.html">
+            Questions
+          </a>
+    
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" >
+              Question Categories
             </a>
-            <a class="navbar-item">
-              CSS
-            </a>
-            <a class="navbar-item">
-              JavaScript
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
-            </a>
+    
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                HTML
+              </a>
+              <a class="navbar-item">
+                CSS
+              </a>
+              <a class="navbar-item">
+                JavaScript
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Report an issue
+              </a>
+            </div>
+          </div>
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary" href="signup.html">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light" href="login.html">
+                <strong>Login</strong>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-  
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary" href="signup.html">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light" href="login.html">
-              Log in
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
 
   {{{ body }}}
