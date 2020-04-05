@@ -1,9 +1,55 @@
-<ul>
-  {{#each animals}}
-    <li>
-      <p>Type: {{animalType}}</p>
-      <p>Pet: {{pet}}</p>
-      <p>Fierceness: {{fierceness}}</p>
-    </li>
-  {{/each}}
-</ul>
+<section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+         Mentor Match | Q & A
+        </h1>
+        <h2 class="subtitle">
+          Beginner Web Developers Asking Questions in a Friendly Environment
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <div class= "card question">
+
+    <article class="media">
+
+    {{#each question}}
+      {{> questions/question_block}}
+      {{#each answer}}
+        {{> questions/answer_block}}
+      {{/each}}
+    {{/each}}
+
+    </article>
+
+  </div>
+
+          
+  <div class= "card comment">
+
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src={{avatar}}>
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="field">
+        <p class="control">
+          <textarea class="textarea" placeholder="Add a comment..."></textarea>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <button class="button">Post comment</button>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  </div>
+  
+  
+

@@ -15,7 +15,6 @@ var passport = require("./config/passport");
 // behalf, along with the user's profile.  The function must invoke `cb`
 // with a user object, which will be set at `req.user` in route handlers after
 // authentication.
-
 // passport.use(
 //   new GitHubStrategy(
 //     {
@@ -24,12 +23,12 @@ var passport = require("./config/passport");
 //       callbackURL: "/return"
 //     },
 //     function(accessToken, refreshToken, profile, cb) {
-//       // In this example, the user's Facebook profile is supplied as the user
-//       // record.  In a production-quality application, the Facebook profile should
-//       // be associated with a user record in the application's database, which
-//       // allows for account linking and authentication with other identity
-//       // providers.
-//       // User.findOrCreate({ githubId: profile.id }, function (err, user) {
+// In this example, the user's Facebook profile is supplied as the user
+// record.  In a production-quality application, the Facebook profile should
+// be associated with a user record in the application's database, which
+// allows for account linking and authentication with other identity
+// providers.
+// User.findOrCreate({ githubId: profile.id }, function (err, user) {
 //       return cb(null, profile);
 //     }
 //   )
@@ -61,7 +60,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Requiring our routes
-require("./routes/html-routes.js")(app);
+// require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
