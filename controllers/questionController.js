@@ -7,12 +7,12 @@ db.Question.sync();
 
 router.get("/", (req, res) => {
   db.Question.findAll({ raw: true }).then(data => {
-    var handlebarbObject = [
+    var handlebarObject = [
       { users: data },
       { questions: data },
       { answers: data }
     ];
-    res.render("index", handlebarbObject);
+    res.render("index", handlebarObject);
   });
 });
 
@@ -26,9 +26,9 @@ router.get("/api/questions/:id?", (req, res) => {
 
 router.post("/api/questions", (req, res) => {
   const newQ = {
-    questionText: req.body.question_text,
-    questionTag: req.body.question_tag,
-    userId: req.body.user_id,
+    questionText: req.body.questionText,
+    questionTag: req.body.questionTag,
+    userId: req.body.userId,
     date: req.body.date
   };
 
@@ -45,9 +45,9 @@ router.post("/api/questions", (req, res) => {
 
 router.put("/api/questions/:id", (req, res) => {
   const updQ = {
-    questionText: req.body.question_text,
-    questionTag: req.body.question_tag,
-    userId: req.body.user_id,
+    questionText: req.body.questionText,
+    questionTag: req.body.questionTag,
+    userId: req.body.userId,
     date: req.body.date
   };
   db.Question.update(updQ, {
