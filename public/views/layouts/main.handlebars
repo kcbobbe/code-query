@@ -2,39 +2,37 @@
 <html lang="en">
   
   <head>
-    <meta charset="UTF-8">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Kulim+Park|Mansalva|Oxanium&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <meta charset="UTF-8">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Kulim+Park|Mansalva|Oxanium&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css" rel ="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="stylesheets/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css" rel ="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="stylesheets/style.css" rel="stylesheet">
 
-    <!--Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://use.fontawesome.com/db293aedfe.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script type="text/javascript" src="js/login.js"></script>
-	       
+        <!--Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://use.fontawesome.com/db293aedfe.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+       
+<!-- everything above will be deleted once in handlebars bc its in in the main.hb-->
 
-    {{!-- <script src="/assets/js/xxx.js"></script> --}}
 
-	<title>Mentor Match</title>
+   <title>Mentor Match</title>
 
-  </head>
-  <header>
-	  <title>Mentor Match</title>
-   <nav class="navbar" role="navigation" aria-label="main navigation">
+  <body>
+   <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+      <a class="navbar-item" href="#">
+        <img src="http://placehold.it" width="110" height="40">
       </a>
   
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -50,24 +48,24 @@
           Home
         </a>
   
-        <a class="navbar-item">
-          Documentation
+        <a class="navbar-item" href="questions.html">
+          Questions
         </a>
   
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
+          <a class="navbar-link" >
+            Question Categories
           </a>
   
           <div class="navbar-dropdown">
             <a class="navbar-item">
-              About
+              HTML
             </a>
             <a class="navbar-item">
-              Jobs
+              CSS
             </a>
             <a class="navbar-item">
-              Contact
+              JavaScript
             </a>
             <hr class="navbar-divider">
             <a class="navbar-item">
@@ -80,10 +78,10 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
+            <a class="button is-primary" href="signup.html">
               <strong>Sign up</strong>
             </a>
-            <a class="button is-light">
+            <a class="button is-light" href="login.html">
               Log in
             </a>
           </div>
@@ -92,10 +90,14 @@
     </div>
   </nav>
 
-  </header>
 
-	<body class="center-align">
+  {{{ body }}}
 
-		{{{ body }}}
-	</body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+
+</body>
+
 </html>
+
