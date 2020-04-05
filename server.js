@@ -59,9 +59,17 @@ passport.deserializeUser(function(obj, cb) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Requiring our routes
+// // Requiring our routes
 // require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+// require("./routes/api-routes.js")(app);
+
+// Import routes and give the server access to them.
+const routes = require("./controllers/userController");
+// const qRoutes = require("./controllers/questionController");
+// const aRoutes = require("./controllers/answerController");
+app.use(routes);
+// app.use(qRoutes);
+// app.use(aRoutes);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {

@@ -1,38 +1,43 @@
-// const moment = require("moment");
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-db.Question.sync();
+db.Answer.sync();
 
 router.get("/", (req, res) => {
-  db.Question.findAll({ raw: true }).then(data => {
-    var handlebarbObject = [
-      { users: data },
-      { questions: data },
-      { answers: data }
-    ];
-    res.render("index", handlebarbObject);
+  db.Answer.findAll({ raw: true }).then(data => {
+    res.render("index", { answers: data });
   });
 });
 
-router.get("/api/questions/:id?", (req, res) => {
+router.get("/api/answers/:id?", (req, res) => {
   if (req.params.id) {
-    db.Router.findAll({ raw: true }).then(data => {
+    db.Answer.findOne({
+      where: { id: req.params.id },
+      raw: true
+    })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+        status(500).end();
+      });
+  } else {
+    db.Answer.findAll({ raw: true }).then(data => {
       res.json(data);
     });
   }
 });
 
-router.post("/api/questions", (req, res) => {
-  const newQ = {
-    questionText: req.body.question_text,
-    questionTag: req.body.question_tag,
-    userId: req.body.user_id,
+router.post("/api/answers", (req, res) => {
+  const newAnswer = {
+    answerText: req.body.answerText,
+    answerTag: req.body.answerTag,
     date: req.body.date
   };
 
-  db.Question.create(newQ)
+  db.Answer.create(newAnswer)
     .then(data => {
       res.status(200).end();
       console.log(data);
@@ -43,14 +48,13 @@ router.post("/api/questions", (req, res) => {
     });
 });
 
-router.put("/api/questions/:id", (req, res) => {
-  const updQ = {
-    questionText: req.body.question_text,
-    questionTag: req.body.question_tag,
-    userId: req.body.user_id,
+router.put("/api/answers/:id", (req, res) => {
+  const updAnswer = {
+    answerText: req.body.answerText,
+    answerTag: req.body.answerTag,
     date: req.body.date
   };
-  db.Question.update(updQ, {
+  db.Answer.update(updAnswer, {
     where: { id: req.params.id }
   })
     .then(function(data) {
@@ -64,8 +68,8 @@ router.put("/api/questions/:id", (req, res) => {
     });
 });
 
-router.delete("/api/questions/:id", (req, res) => {
-  db.Question.destroy({
+router.delete("/api/answers/:id", (req, res) => {
+  db.Answer.destroy({
     where: {
       id: req.params.id
     }
@@ -79,5 +83,4 @@ router.delete("/api/questions/:id", (req, res) => {
       res.status(500).end();
     });
 });
-
 module.exports = router;
