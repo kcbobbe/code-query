@@ -1,9 +1,11 @@
 require("dotenv").config();
 // Requiring necessary npm packages
-var express = require("express");
-var session = require("express-session");
+const path = require("path");
+const express = require("express");
+const session = require("express-session");
+const exphbs = require("express-handlebars");
 // Requiring passport as we've configured it
-var passport = require("./config/passport");
+const passport = require("./config/passport");
 
 //github oauth
 // var GitHubStrategy = require("passport-github").Strategy;
@@ -47,6 +49,11 @@ app.use(express.static("public"));
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
+//handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+app.set("views", path.resolve("public", "views"));
+
 //pull in passport middleware
 passport.serializeUser(function(user, cb) {
   cb(null, user);
