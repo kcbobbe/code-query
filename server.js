@@ -1,6 +1,6 @@
 require("dotenv").config();
 // Requiring necessary npm packages
-const path = require('path');
+const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
@@ -52,7 +52,7 @@ app.use(
 //handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-app.set('views', path.resolve('public', 'views'));
+app.set("views", path.resolve("public", "views"));
 
 //pull in passport middleware
 passport.serializeUser(function(user, cb) {

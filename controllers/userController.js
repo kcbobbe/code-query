@@ -105,6 +105,4 @@ router.get("/api/user_data", function(req, res) {
 
 //-----handlebar routes--------
 
-
-
 module.exports = router;
