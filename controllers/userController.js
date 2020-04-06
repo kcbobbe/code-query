@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 var express = require("express");
 var router = express.Router();
 
@@ -17,17 +18,19 @@ router.get("/", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  db.User.findAll({ raw: true }).then(data => {
-    res.render("login", { users: data });
-  });
+  //Coming to login page after signup or direct click on login
+  res.render("login");
 });
 
 router.get("/signup", (req, res) => {
-  db.User.findAll({ raw: true }).then(data => {
-    res.render("signup", { users: data });
-  });
+  //coming here after click on signup
+  res.render("signup");
 });
 
+router.get("/members", isAuthenticated, (req, res) => {
+  //Coming from isauth function after checking
+  res.render("members");
+});
 // module.exports = function(app) {
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the members page.
@@ -36,6 +39,7 @@ router.get("/signup", (req, res) => {
 //-----------------------api routes-----------------------------------------------
 router.post("/api/login", passport.authenticate("local"), function(req, res) {
   // Sending back a password, even a hashed password, isn't a good idea
+  //coming here after inserting the user into db
   res.json({
     email: req.user.email,
     id: req.user.id
