@@ -11,12 +11,13 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true,
       len: [1]
-    },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      len: [1]
     }
+    // the created at date and the updated at date is provided from sequelize. Eventually we should convert to date using moment
+    // date: {
+    //   type: DataTypes.DATE,
+    //   allowNull: false,
+    //   len: [1]
+    // }
   });
 
   Answer.associate = function(models) {
