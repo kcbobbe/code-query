@@ -11,11 +11,11 @@ db.User.sync();
 
 //-----get routes----------
 
-router.get("/", (req, res) => {
-  db.User.findAll({ raw: true }).then(data => {
-    res.render("index", { users: data });
-  });
-});
+// router.get("/", (req, res) => {
+//   db.User.findAll({ raw: true }).then(data => {
+//     res.render("index", { users: data });
+//   });
+// });
 
 router.get("/login", (req, res) => {
   //Coming to login page after signup or direct click on login

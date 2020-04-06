@@ -3,27 +3,19 @@
   
   <head>
       <meta charset="UTF-8">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!-- google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Kulim+Park|Mansalva|Oxanium&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css" rel ="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <link href="stylesheets/style.css" rel="stylesheet">
 
         <!--Scripts -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="https://use.fontawesome.com/db293aedfe.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/login.js"></script>
        
-<!-- everything above will be deleted once in handlebars bc its in in the main.hb-->
     <title>Mentor Match</title>
   </head>
 
@@ -31,7 +23,10 @@
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">
-          <img src="http://placehold.it" width="110" height="40">
+          <i class="fa fa-users" aria-hidden="true"></i>
+        </a>
+        <a class="navbar-item">
+          <h1 id="navTitle"><strong> Mentor Match </strong></h1>
         </a>
     
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -43,7 +38,7 @@
     
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">
+          <a class="navbar-item" href="/">
             Home
           </a>
 {{!-- add links so new partial appears in body when clicked          --}}
@@ -85,6 +80,23 @@
               </a>
             </div>
           </div>
+          <div class="navbar-item">
+            <form id="search-form">
+              <div class="field has-addons">
+              <div class="control">
+                <input class="input" id="searchField" type="text" placeholder="Search">
+              </div>
+              <div class="control">
+                <button class="button" id="search-button" type="submit">
+                  <div class="icon is-small">
+                    <i class="fas fa-search"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
         </div>
       </div>
     </nav>
@@ -97,7 +109,7 @@
   <script type="text/javascript" src="js/login.js"></script>
   <script type="text/javascript" src="js/signup.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
-
+  <script type="text/javascript" src="js/questions.js"></script>
 
 
 </body>

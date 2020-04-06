@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "jest":"jest",
+    "jest": "jest",
     "test": "npm run lint",
     "start": "node server.js",
     "lint": "eslint --quiet .",
@@ -36,6 +36,7 @@
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
+    "handlebars": "^4.5.0",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7",
     "sequelize-mock": "^0.10.2"

@@ -72,9 +72,9 @@ app.use(passport.session());
 
 // Import routes and give the server access to them.
 const routes = require("./controllers/userController");
-// const qRoutes = require("./controllers/questionController");
-// const aRoutes = require("./controllers/answerController");
-app.use(routes);
+const qRoutes = require("./controllers/questionController");
+const aRoutes = require("./controllers/answerController");
+app.use(routes, qRoutes, aRoutes);
 // app.use(qRoutes);
 // app.use(aRoutes);
 

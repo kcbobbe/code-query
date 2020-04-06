@@ -10,7 +10,9 @@ module.exports = function(sequelize, DataTypes) {
     questionTag: {
       type: DataTypes.STRING,
       allowNull: false,
-      len: [1]
+      validate: {
+        len: [1]
+      }
     }
     // the created at date and the updated at date is provided from sequelize. Eventually we should convert to date using moment
     // date: {
@@ -21,16 +23,16 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Question.associate = function(models) {
-    Question.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
+    Question.hasMany(models.Answer, {
+      onDelete: "cascade"
     });
   };
 
   Question.associate = function(models) {
-    Question.hasMany(models.Answer, {
-      onDelete: "cascade"
+    Question.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
     });
   };
 

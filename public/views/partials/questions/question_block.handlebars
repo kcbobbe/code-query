@@ -1,19 +1,19 @@
 
 {{!-- if we use an avatar --}}
-<figure class="media-left">
+{{!-- <figure class="media-left">
     <p class="image is-64x64">
-    <img src= {{ avatar }} > 
-    </p>
-</figure>
-
-<div class="media-content">
-    <div class="content">
-
-        <p>
-            <strong> {{ email }} </strong>
-            <br> {{ questionText }} <br>
-            <small><a>{{ questionTag }}</a> · <a>Replies</a> · {{timestamp}}</small>
-        </p>
-    
+    {{!-- <img src= {{ avatar }} >  --}}
+    {{!-- </p>  --}}
+{{!-- </figure> --}}
+<article class="media">
+    <div class="media-content">
+        <div class="content">
+            <p>
+                <strong>User: {{User.email}} </strong>
+                <br> {{questionText}} <br>
+                <small><a>{{questionTag}}</a> · <a>Replies</a> "timestamp" </small>
+            </p>
+        
+        </div>
     </div>
-</div>
+</article>
