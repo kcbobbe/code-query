@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "jest":"jest",
     "test": "npm run lint",
     "start": "node server.js",
     "lint": "eslint --quiet .",
@@ -19,6 +20,7 @@
     "express": "^4.17.0",
     "express-handlebars": "^4.0.2",
     "express-session": "^1.16.1",
+    "jest": "^25.2.7",
     "moment": "^2.24.0",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
@@ -35,6 +37,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
-    "prettier": "^1.13.7"
+    "prettier": "^1.13.7",
+    "sequelize-mock": "^0.10.2"
   }
 }
