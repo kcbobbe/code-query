@@ -10,7 +10,9 @@ module.exports = function(sequelize, DataTypes) {
     questionTag: {
       type: DataTypes.STRING,
       allowNull: false,
-      len: [1]
+      validate: {
+        len: [1]
+      }
     }
     // the created at date and the updated at date is provided from sequelize. Eventually we should convert to date using moment
     // date: {
