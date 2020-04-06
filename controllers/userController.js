@@ -6,10 +6,25 @@ var router = express.Router();
 
 db.User.sync();
 
+//-------route to handlebar index file------
+
+//-----get routes----------
+
 router.get("/", (req, res) => {
   db.User.findAll({ raw: true }).then(data => {
-    // var handlebarObject = { user: data };
     res.render("index", { users: data });
+  });
+});
+
+router.get("/login", (req, res) => {
+  db.User.findAll({ raw: true }).then(data => {
+    res.render("login", { users: data });
+  });
+});
+
+router.get("/signup", (req, res) => {
+  db.User.findAll({ raw: true }).then(data => {
+    res.render("signup", { users: data });
   });
 });
 
@@ -41,17 +56,19 @@ router.post("/api/signup", function(req, res) {
     });
 });
 
-//route middleware for github login
-// router.get("/auth/github", passport.authenticate("github"));
+//-------------------passport-github part--comment back in once page is registered with github------------------
 
-// router.get(
-//   "/auth/github/callback",
-//   passport.authenticate("github", { failureRedirect: "/login" }),
-//   function(req, res) {
-//     // Successful authentication, redirect home.
-//     res.redirect("/");
-//   }
-// );
+// route middleware for github login
+router.get("/auth/github", passport.authenticate("github"));
+
+router.get(
+  "/auth/github/callback",
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/");
+  }
+);
 
 // Route for logging user out
 router.get("/logout", function(req, res) {
@@ -102,7 +119,5 @@ router.get("/api/user_data", function(req, res) {
 // router.get("/members", isAuthenticated, function(req, res) {
 //   res.sendFile(path.join(__dirname, "../public/members.html"));
 // });
-
-//-----handlebar routes--------
 
 module.exports = router;
