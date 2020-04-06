@@ -6,7 +6,7 @@ var router = express.Router();
 
 db.User.sync();
 
-//-------route to handlebar index file------
+//-------route to handlebar files------
 
 //-----get routes----------
 
@@ -32,6 +32,8 @@ router.get("/signup", (req, res) => {
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
+
+//-----------------------api routes-----------------------------------------------
 router.post("/api/login", passport.authenticate("local"), function(req, res) {
   // Sending back a password, even a hashed password, isn't a good idea
   res.json({
