@@ -11,9 +11,29 @@ router.get("/", (req, res) => {
   });
 });
 
+// router.get("/api/questions/:id?", (req, res) => {
+//   if (req.params.id) {
+//     db.Router.findAll({ raw: true }).then(data => {
+//       res.json(data);
+//     });
+//   }
+// });
+
 router.get("/api/questions/:id?", (req, res) => {
   if (req.params.id) {
-    db.Router.findAll({ raw: true }).then(data => {
+    db.Question.findOne({
+      where: { id: req.params.id },
+      raw: true
+    })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+        status(500).end();
+      });
+  } else {
+    db.Question.findAll({ raw: true }).then(data => {
       res.json(data);
     });
   }
