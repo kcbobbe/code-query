@@ -57,6 +57,7 @@ router.post("/api/questions", (req, res) => {
   const newQ = {
     questionText: req.body.questionText,
     questionTag: req.body.questionTag,
+    UserId: req.body.UserId,
     date: req.body.date
   };
 

@@ -13,51 +13,43 @@
 </section>
 
 <div class="container">
-
-<div class= "columns">
-
-  <div class="column is-one-third">
-
-    <div class ="card search ">
-        <div class= "card title">Search:</div>
-
-        <div class="field">
-          <label class="label">Select Subject Area</label>
-          <div class="control">
-            <input class="input is-primary" type="text" placeholder="Question">
-            <br><br>
-            <button class="button is-primary submit">Submit</button>
-            <br>
-          </div>
-        </div>
-
-    </div>
-  </div>
-
-  <div class="column is-two-thirds">
-
+  
     <div class= "card askQuestion">
-      <div class= "card title"> Ask Your Question:</div>
+      <div class="card-content">
+      <div class="media-content">
+      <div class= "title"> Ask Your Question:</div>
       <br>
+      <form id="questionForm">
       <div class="field">
         <div class="control">
-          <textarea class="textarea is-primary" placeholder="I need help with ..."></textarea>
+            <div class="select">
+              <select id='questionTag'>
+                <option>HTML</option>
+                <option>CSS</option>
+                <option>JavaScript</option>
+              </select>
+            </div>
+          </div>
+        <div class="control">
+          <textarea id="questionText" class="textarea is-primary" placeholder="I need help with ..."></textarea>
         </div>
         <br>
-        <button class="button is-primary">Submit</button>
+        <button type="submit" class="button is-primary">Submit</button>
         <br>
       </div>
+      </form>
+      </div>
+      </div>
     </div>
-  </div>
-
-</div>
-
 
 
 <div class= "card allQuestion">
-  <div class=" card title">Recently Asked Questions</div>
+  <div class="card-content">
+    <div class="media-content">
+
+  <div class="title">Recently Asked Questions</div>
   <br>
-    <article class="media">
+    {{!-- <article class="media"> --}}
 
         {{!-- {{#with User}} --}}
         {{#each questions}}
@@ -69,8 +61,10 @@
           {{/each}} --}}
         
 
-    </article>
-
+    {{!-- </article> --}}
+    </div>
+    </div>
+</div>
           
   <div class= "card comment">
 
@@ -95,8 +89,7 @@
     </article>
 
 </div>
+</div>
 
 </div>
-  
-  
 
