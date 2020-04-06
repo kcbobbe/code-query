@@ -2,17 +2,17 @@
 {{!-- if we use an avatar --}}
 <figure class="media-left">
     <p class="image is-64x64">
-    <img src= {{ avatar }} > 
+    {{!-- <img src= {{ avatar }} >  --}}
     </p>
 </figure>
 
 <div class="media-content">
     <div class="content">
-
+        TEST
         <p>
-            <strong> {{ email }} </strong>
-            <br> {{ questionText }} <br>
-            <small><a>{{ questionTag }}</a> · <a>Replies</a> · {{timestamp}}</small>
+            <strong> {{User.email}} </strong>
+            <br> {{questionText}} <br>
+            <small><a>{{questionTag}}</a> · <a>Replies</a> "timestamp" </small>
         </p>
     
     </div>

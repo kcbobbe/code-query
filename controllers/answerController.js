@@ -4,9 +4,23 @@ const db = require("../models");
 
 db.Answer.sync();
 
-router.get("/", (req, res) => {
-  db.Answer.findAll({ raw: true }).then(data => {
-    res.render("index", { answers: data });
+// router.get("/", (req, res) => {
+//   db.Answer.findAll().then(data => {
+//     console.log(data);
+//     res.render("index", { answers: data });
+//   });
+// });
+
+router.get("/api/answers", (req, res) => {
+  const query = {};
+  if (req.query.QuestionId) {
+    query.QuestionId = req.query.QuestionId;
+  }
+  db.Answer.findAll({
+    where: query,
+    include: [db.Question]
+  }).then(data => {
+    res.json(data);
   });
 });
 

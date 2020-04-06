@@ -59,12 +59,15 @@
   <br>
     <article class="media">
 
-        {{#each question}}
+        {{!-- {{#with User}} --}}
+        {{#each questions}}
           {{> questions/question_block}}
-          {{#each answer}}
-              {{> answers/answer_block}}
-          {{/each}}
         {{/each}}
+        {{!-- {{/with}} --}}
+          {{!-- {{#each answers}}
+            {{> answers/answer_block}}
+          {{/each}} --}}
+        
 
     </article>
 
