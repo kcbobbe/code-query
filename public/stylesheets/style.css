@@ -3,6 +3,11 @@ form.login {
   margin-top: 50px;
 }
 
+<<<<<<< HEAD
+.hide{
+  display:none;
+}
+=======
 body{
   font-family: 'Raleway', sans-serif;
   background-color: #F4FDFB;
@@ -49,3 +54,4 @@ body{
 }
 
 
+>>>>>>> 0d505e576f2f9e21ebd3da69bbfe1c6c6f1b187a
