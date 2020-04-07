@@ -1,6 +1,13 @@
-$(function() {
+$(document).ready(function() {
+  let userId;
+  $.get("/api/user_data").then(function(data) {
+    userId = data.id;
+  });
+
   $("#questionForm").on("submit", function(event) {
     event.preventDefault();
+    console.log(userId);
+
     let selectedTag = $("#questionTag")
       .children("option:selected")
       .val();
@@ -9,7 +16,8 @@ $(function() {
       questionText: $("#questionText")
         .val()
         .trim(),
-      questionTag: selectedTag
+      questionTag: selectedTag,
+      UserId: userId
     };
 
     $.ajax("/api/questions", {
