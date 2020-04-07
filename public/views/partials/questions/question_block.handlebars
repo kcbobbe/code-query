@@ -1,19 +1,42 @@
-
 {{!-- if we use an avatar --}}
 {{!-- <figure class="media-left">
     <p class="image is-64x64">
     {{!-- <img src= {{ avatar }} >  --}}
-    {{!-- </p>  --}}
+{{!-- </p>  --}}
 {{!-- </figure> --}}
-<article class="media">
+<article class="media" data-id={{id}}>
     <div class="media-content">
         <div class="content">
             <p>
-                <i>By: {{'User.email'}} </i> on {{updatedAt}}
+                <em>By: {{'User.email'}} </em> on {{updatedAt}}
                 <br> {{questionText}} <br>
-                <small><a>{{questionTag}}</a> · <a>Replies</a> "timestamp" </small>
+                <span class="tag is-dark">{{questionTag}}</span> |
+                <a class="viewReplies">View Replies</a> |
+                <a class="showReplyForm">Reply</a>
             </p>
-        
         </div>
+        <div class="replyForm" id=replyForm{{id}} style="display:none">
+            <form id="questionForm">
+                <div class="field">
+                    <div class="control">
+                        <textarea id=answerText{{id}} class="textarea is-primary"
+                            placeholder="Your response..."></textarea>
+                    </div>
+                    <br>
+                    <button type="submit" class="button is-primary">Submit</button>
+                    <br>
+                </div>
+            </form>
+        </div>
+        <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
+            No replies yet
+            {{!-- {{#each answers}}
+            {{> answers/answer_block}}
+            {{/each}} --}}
+            <a class="hideReplies">Hide Replies</a>
+        </article>
+
     </div>
+
+
 </article>
