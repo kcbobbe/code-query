@@ -5,16 +5,9 @@
       <meta charset="UTF-8">
         <!-- google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Kulim+Park|Mansalva|Oxanium&display=swap" rel="stylesheet">
-
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css" rel ="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <link href="stylesheets/style.css" rel="stylesheet">
-
-        <!--Scripts -->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
        
     <title>Mentor Match</title>
   </head>
@@ -22,10 +15,8 @@
   <body>
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">
-          <i class="fa fa-users" aria-hidden="true"></i>
-        </a>
-        <a class="navbar-item">
+        <a class="navbar-item" href="/">
+          <i class="fa fa-users" style="margin-right: .25em" aria-hidden="true"></i>
           <h1 id="navTitle"><strong> Mentor Match </strong></h1>
         </a>
     
@@ -38,9 +29,9 @@
     
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item" href="/">
+          {{!-- <a class="navbar-item" href="/">
             Home
-          </a>
+          </a> --}}
 {{!-- add links so new partial appears in body when clicked          --}}
           {{!-- <a class="navbar-item" href="#">
             Questions
@@ -106,6 +97,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/login.js"></script>
   <script type="text/javascript" src="js/signup.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
