@@ -9,8 +9,7 @@ $(function() {
       questionText: $("#questionText")
         .val()
         .trim(),
-      questionTag: selectedTag,
-      UserId: 1
+      questionTag: selectedTag
     };
 
     $.ajax("/api/questions", {
