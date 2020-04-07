@@ -1,25 +1,45 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
+<div class="container is-fluid">
+        <h2 class="title" style="margin-top: 2em">Sign Up Form</h2>
         <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+          <div class="field">
+            <label class="label">Email address</label>
+                        <div class="control has-icons-left">
+
+            <input type="email" class="input" id="email-input" placeholder="Email">
+            <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
+
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left">
+            <input type="password" class="input" id="password-input" placeholder="Password">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user-lock"></i>
+              </span>
+            </div>
           </div>
+
+
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
+          <div class="field">
+            <div class="control">
+            <button type="submit" class="button">Sign Up</button>
+            </div>
+          </div>
         </form>
         <br />
-        <p>Or sign in with your Github account<a href="/auth/github" class=" github"><i class="fa fa-github fa-lg fa-fw"></i></a></p>
-        <p>Or log in <a href="/login">here</a></p>
+        <p><a href="/auth/github" class="github">
+          Sign in with GitHub
+          <i class="fab fa-github"></i>
+          </a>
+        </p>
+        <p>Already have an account? <a href="/login">Login Here</a></p>
       </div>
     </div>
   </div>
