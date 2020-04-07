@@ -65,9 +65,4 @@ $(document).ready(function() {
       console.log($(`#replyForm${dataId}`))
   });
 
-  // $(".viewReplies").on("click", event => {
-  //   event.preventDefault();
-  //   $("#req")
-  //   repliesContainer.css("display", "inline-block");
-  // });
 });

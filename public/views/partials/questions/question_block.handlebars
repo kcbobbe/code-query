@@ -4,11 +4,13 @@
     {{!-- <img src= {{ avatar }} >  --}}
 {{!-- </p>  --}}
 {{!-- </figure> --}}
+<div class="card question">
+
 <article class="media" data-id={{id}}>
     <div class="media-content">
         <div class="content">
             <p>
-                <em>By: {{'User.email'}} </em> on {{updatedAt}}
+                <em>By: <span class="userEmail">{{'User.email'}}</span></em> on {{updatedAt}}
                 <br> {{questionText}} <br>
                 <span class="tag is-dark">{{questionTag}}</span> |
                 <a class="viewReplies">View Replies</a> |
@@ -40,3 +42,37 @@
 
 
 </article>
+</div>
+
+{{!-- Stephanie's  styling--}}
+{{!-- <div class= "card question">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p id="question">
+          <i>By: <span class="userEmail">{{'User.email'}}</span> </i> on {{updatedAt}}
+          <br> {{questionText}} <br>
+          <a class="tag">{{questionTag}}</a> · <small><a>Replies</a> "timestamp" </small>
+
+        </p>
+      </div>
+
+      <div class="comment">
+        <article class="media">
+          <div class="media-content">
+            <div class="field">
+              <div class="control">
+                <textarea id="questionText" class="textarea is-primary" placeholder="Add a comment ..."></textarea>
+              </div>
+              <br>
+              <button class="button is-primary" id="postComment">Post comment</button>
+              <br>
+            </div>
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </article>
+</div>
+ --}}

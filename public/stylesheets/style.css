@@ -3,6 +3,55 @@ form.login {
   margin-top: 50px;
 }
 
+<<<<<<< HEAD
 .hide{
   display:none;
 }
+=======
+body{
+  font-family: 'Raleway', sans-serif;
+  background-color: #F4FDFB;
+}
+
+.card {
+  background-color: white;
+  padding: 20px!important;
+  margin-bottom: 20px;
+  color: #000!important;
+  background-color: #fff!important;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+.member-name{
+  color: #008571;
+  font-weight: bold;
+}
+.control{
+  margin: 10px;
+}
+
+.userEmail{
+  color: #008571;
+  font-weight: bold;
+}
+
+#question{
+  font-size: 1.2em;
+}
+
+.tag{
+  font-weight: bold;
+}
+
+
+.hero-body{
+  background-color: white;
+  border-bottom: 1px solid #00D1B2;
+  font-size: 1.2em;
+  /* box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19); */
+
+
+}
+
+
+>>>>>>> 0d505e576f2f9e21ebd3da69bbfe1c6c6f1b187a
