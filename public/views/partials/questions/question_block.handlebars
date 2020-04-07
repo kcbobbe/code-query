@@ -1,19 +1,31 @@
 
-{{!-- if we use an avatar --}}
-{{!-- <figure class="media-left">
-    <p class="image is-64x64">
-    {{!-- <img src= {{ avatar }} >  --}}
-    {{!-- </p>  --}}
-{{!-- </figure> --}}
-<article class="media">
+<div class= "card question">
+  <article class="media">
     <div class="media-content">
-        <div class="content">
-            <p>
-                <i>By: {{'User.email'}} </i> on {{updatedAt}}
-                <br> {{questionText}} <br>
-                <small><a>{{questionTag}}</a> · <a>Replies</a> "timestamp" </small>
-            </p>
-        
-        </div>
+      <div class="content">
+        <p id="question">
+          <i>By: <span class="userEmail">{{'User.email'}}</span> </i> on {{updatedAt}}
+          <br> {{questionText}} <br>
+          <a class="tag">{{questionTag}}</a> · <small><a>Replies</a> "timestamp" </small>
+
+        </p>
+      </div>
+
+      <div class="comment">
+        <article class="media">
+          <div class="media-content">
+            <div class="field">
+              <div class="control">
+                <textarea id="questionText" class="textarea is-primary" placeholder="Add a comment ..."></textarea>
+              </div>
+              <br>
+              <button class="button is-primary" id="postComment">Post comment</button>
+              <br>
+            </div>
+          </div>
+        </article>
+      </div>
+      
     </div>
-</article>
+  </article>
+</div>
