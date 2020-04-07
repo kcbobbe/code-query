@@ -14,45 +14,44 @@
 
 <div class="container">
 
-  <div class="card askQuestion">
+  <div class="askQuestion">
     <div class="card-content">
       <div class="media-content">
         <div class="title"> Ask Your Question:</div>
         <br>
-        <form id="questionForm">
-          <div class="field">
-            <div class="control">
-              <div class="select">
-                <select id='questionTag'>
-                  <option>HTML</option>
-                  <option>CSS</option>
-                  <option>JavaScript</option>
-                </select>
+        <div class="card">
+          <form id="questionForm">
+            <div class="field">
+              <div class="control">
+                <div class="select is-primary">
+                  <select id='questionTag'>
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>JavaScript</option>
+                  </select>
+                </div>
               </div>
+              <div class="control">
+                <textarea id="questionText" class="textarea is-primary" placeholder="I need help with ..."></textarea>
+              </div>
+              <br>
+              <button type="submit" class="button is-primary">Submit</button>
+              <br>
             </div>
-            <div class="control">
-              <textarea id="questionText" class="textarea is-primary" placeholder="I need help with ..."></textarea>
-            </div>
-            <br>
-            <button type="submit" class="button is-primary">Submit</button>
-            <br>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 
 
-  <div class="card allQuestion">
+  {{!-- <div class="card allQuestion"> --}}
+  <div class="allQuestion">
     <div class="card-content">
       <div class="media-content">
-
         <div class="title">Recently Asked Questions</div>
         <br>
-        <div class="container is-fluid">
-        {{!-- <article class="media"> --}}
-
-        {{!-- {{#with User}} --}}
+  
         {{#each questions}}
         {{> questions/question_block}}
         {{/each}}
@@ -60,37 +59,10 @@
         {{!-- {{#each answers}}c
             {{> answers/answer_block}}
           {{/each}} --}}
-
-
-        {{!-- </article> --}}
-        </div>
       </div>
+
+ 
     </div>
   </div>
-
-  <div class="card comment">
-
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-64x64">
-          <img src={{avatar}}>
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="field">
-          <p class="control">
-            <textarea class="textarea" placeholder="Add a comment..."></textarea>
-          </p>
-        </div>
-        <div class="field">
-          <p class="control">
-            <button class="button">Post comment</button>
-          </p>
-        </div>
-      </div>
-    </article>
-
-  </div>
 </div>
 
-</div>
