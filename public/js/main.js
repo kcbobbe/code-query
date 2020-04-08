@@ -9,21 +9,18 @@ $(document).ready(function() {
   });
 
   $("#HTMLTag").click(function() {
-    console.log("HTML clicked");
     const questionTag = "HTML";
     console.log(questionTag);
     renderQuestionTagQuestions(questionTag);
   });
 
   $("#CSSTag").click(function() {
-    console.log("CSS clicked");
     const questionTag = "CSS";
     console.log(questionTag);
     renderQuestionTagQuestions(questionTag);
   });
 
   $("#JSTag").click(function() {
-    console.log("JS clicked");
     const questionTag = "JavaScript";
     console.log(questionTag);
     renderQuestionTagQuestions(questionTag);
@@ -32,8 +29,11 @@ $(document).ready(function() {
   function renderQuestionTagQuestions(questionTag) {
     const url = "/api/question/" + questionTag;
     console.log(url);
-    $.get(url, function() {
-      //  ("index", { questions: data });
-    });
+    //render questions display in index.handlebars in questions
+
+    // $.get(url, function() {
+
+    //   //  ("index", { questions: data });
+    // });
   }
 });

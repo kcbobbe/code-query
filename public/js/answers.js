@@ -7,7 +7,6 @@ $(document).ready(function() {
   $(".answerForm").on("submit", function(event) {
     event.preventDefault();
     let questionId = parseInt($(event.target).attr("data-id"));
-    console.log("questionId", questionId, "userid", userId);
     let newAnswer = {
       answerText: $(`#answerText${questionId}`)
         .val()

@@ -31,7 +31,8 @@ router.get("/", (req, res) => {
           id: a.id,
           answerText: a.answerText,
           answerTag: a.answerTag,
-          dateTime: newAnswerDT
+          dateTime: newAnswerDT,
+          username: d.User.username
         };
       });
 
@@ -41,6 +42,7 @@ router.get("/", (req, res) => {
         questionTag: d.questionTag,
         dateTime: newDT,
         User: d.User,
+        username: d.User.username,
         Answers: newAnswers
       };
     });
@@ -165,7 +167,7 @@ router.delete("/api/questions/:id", (req, res) => {
 
 router.get("/api/question/:questionTag?", (req, res) => {
   if (req.params.questionTag) {
-    db.Question.findOne({
+    db.Question.findAll({
       where: { questionTag: req.params.questionTag },
       raw: true
     })
