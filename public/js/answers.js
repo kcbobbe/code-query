@@ -7,14 +7,13 @@ $(document).ready(function() {
   $(".answerForm").on("submit", function(event) {
     event.preventDefault();
     let questionId = parseInt($(event.target).attr("data-id"));
-    console.log("questionId", questionId, "userid", userId);
     let newAnswer = {
       answerText: $(`#answerText${questionId}`)
         .val()
         .trim(),
       // answerTag: "JavaScript",
-      QuestionId: 1,
-      UserId: 1
+      QuestionId: questionId,
+      UserId: userId
     };
 
     $.ajax("/api/answers", {
