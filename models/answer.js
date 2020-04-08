@@ -23,15 +23,12 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Answer.associate = function(models) {
-    Answer.belongsTo(models.User, {
+    Answer.belongsTo(models.Question, {
       foreignKey: {
         allowNull: false
       }
     });
-  };
-
-  Answer.associate = function(models) {
-    Answer.belongsTo(models.Question, {
+    Answer.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
