@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const moment = require("moment");
 
 db.Question.sync();
 
@@ -13,7 +14,7 @@ router.get("/", (req, res) => {
   db.Question.findAll({
     raw: true,
     where: query,
-    include: [db.User]
+    include: [db.User, db.Answer]
   }).then(data => {
     console.log(data);
     res.render("index", { questions: data });
@@ -27,9 +28,33 @@ router.get("/api/questions", (req, res) => {
   }
   db.Question.findAll({
     where: query,
-    include: [db.User]
+    include: [db.User, db.Answer]
   }).then(data => {
-    res.json(data);
+    console.log(data);
+    const newData = data.map(d => {
+      const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+      const newAnswers = d.Answers.map(a => {
+        const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+        return {
+          id: a.id,
+          answerText: a.answerText,
+          answerTag: a.answerTag,
+          dateTime: newAnswerDT
+        };
+      });
+
+      return {
+        id: d.id,
+        questionText: d.questionText,
+        questionTag: d.questionTag,
+        dateTime: newDT,
+        User: d.User,
+        Answers: newAnswers
+      };
+    });
+    res.json(newData);
   });
 });
 

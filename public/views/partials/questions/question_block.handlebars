@@ -9,12 +9,13 @@
 <article class="media" data-id={{id}}>
     <div class="media-content">
         <div class="content">
+            {{id}}
             <p>
                 <em>By: <span class="userEmail">{{'User.email'}}</span></em> on {{updatedAt}}
                 <br> {{questionText}} <br>
                 <span class="tag is-dark">{{questionTag}}</span> |
                 <a class="viewReplies">View Replies</a> |
-                <a class="showReplyForm">Reply</a>
+                <a class="showReplyForm replyButton" style="display:none">Reply</a>
             </p>
         </div>
         <div class="replyForm" id=replyForm{{id}} style="display:none">
@@ -32,9 +33,11 @@
         </div>
         <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
             No replies yet
-            {{!-- {{#each answers}}
-            {{> answers/answer_block}}
-            {{/each}} --}}
+            {{#each Answers}}
+                {{!-- {{#if questions.id = answers.id}} --}}
+                    {{> answers/answer_block}}
+                {{!-- {{/if}} --}}
+            {{/each}}
             <a class="hideReplies">Hide Replies</a>
         </article>
 
