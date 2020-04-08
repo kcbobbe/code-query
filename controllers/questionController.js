@@ -31,7 +31,8 @@ router.get("/", (req, res) => {
           id: a.id,
           answerText: a.answerText,
           answerTag: a.answerTag,
-          dateTime: newAnswerDT
+          dateTime: newAnswerDT,
+          username: d.User.username
         };
       });
 
@@ -41,6 +42,7 @@ router.get("/", (req, res) => {
         questionTag: d.questionTag,
         dateTime: newDT,
         User: d.User,
+        username: d.User.username,
         Answers: newAnswers
       };
     });
