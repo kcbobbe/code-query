@@ -5,7 +5,7 @@ $(document).ready(function() {
   let userQuestions = [];
 
   $.get("/api/user_data").then(data => {
-    $(".member-name").text(data.email);
+    $(".member-name").text(data.username);
     userId = data.id;
     $.get("/api/questions").then(data => {
       data.forEach(question => {
