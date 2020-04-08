@@ -44,24 +44,18 @@
     </div>
   </div>
 
-
-  {{!-- <div class="card allQuestion"> --}}
   <div class="allQuestion">
     <div class="card-content">
       <div class="media-content">
         <div class="title">Recently Asked Questions</div>
         <br>
   
-        {{#each questions}}
-        {{> questions/question_block}}
-        {{/each}}
-        {{!-- {{/with}} --}}
-        {{!-- {{#each answers}}c
-            {{> answers/answer_block}}
-          {{/each}} --}}
+          {{#each questions}}
+          
+            {{> questions/question_block}}
+          {{/each}}
+        
       </div>
-
- 
     </div>
   </div>
 </div>
