@@ -34,7 +34,7 @@ $(document).ready(function() {
 
     // $.get(url, function() {
 
-  //   //   //  ("index", { questions: data });
-  //   // });
+    //   //   //  ("index", { questions: data });
+    //   // });
   }
 });
