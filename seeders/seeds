@@ -1,4 +1,4 @@
-insert into Users (email, password, createdAt, updatedAt) VALUES ('kc@gmail.com', 1234, NOW(), NOW())
+insert into Users (username, password, createdAt, updatedAt) VALUES ('kc-user', 1234, NOW(), NOW())
 
 insert into Questions (questionText, questionTag, createdAt, updatedAt) VALUES ('What is CSS', 'CSS', NOW(), NOW())
 insert into Questions (questionText, questionTag, createdAt, updatedAt) VALUES ('What is HTML', 'HTML', NOW(), NOW())

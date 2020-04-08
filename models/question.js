@@ -26,9 +26,6 @@ module.exports = function(sequelize, DataTypes) {
     Question.hasMany(models.Answer, {
       onDelete: "cascade"
     });
-  };
-
-  Question.associate = function(models) {
     Question.belongsTo(models.User, {
       foreignKey: {
         allowNull: false

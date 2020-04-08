@@ -28,15 +28,12 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
-  };
-
-  Answer.associate = function(models) {
     Answer.belongsTo(models.Question, {
       foreignKey: {
         allowNull: false
       }
     });
   };
-
+  
   return Answer;
 };
