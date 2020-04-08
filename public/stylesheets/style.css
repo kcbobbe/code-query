@@ -6,6 +6,7 @@ form.login {
 .hide{
   display:none;
 }
+
 body{
   font-family: 'Raleway', sans-serif;
   background-color: #F4FDFB;
@@ -28,7 +29,7 @@ body{
   margin: 10px;
 }
 
-.userEmail{
+.userUsername{
   color: #008571;
   font-weight: bold;
 }
@@ -51,4 +52,7 @@ body{
 
 }
 
-
+#alert {
+  color: red;
+  font-weight: bold;
+}
