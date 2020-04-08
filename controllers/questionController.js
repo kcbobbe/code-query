@@ -161,4 +161,27 @@ router.delete("/api/questions/:id", (req, res) => {
     });
 });
 
+//----questionTag route (is question without s)--------
+
+router.get("/api/question/:questionTag?", (req, res) => {
+  if (req.params.questionTag) {
+    db.Question.findOne({
+      where: { questionTag: req.params.questionTag },
+      raw: true
+    })
+      .then(data => {
+        res.json(data);
+        res.render("index", { questions: data });
+      })
+      .catch(err => {
+        console.log(err);
+        status(500).end();
+      });
+  } else {
+    db.Question.findAll({ raw: true }).then(data => {
+      res.json(data);
+    });
+  }
+});
+
 module.exports = router;
