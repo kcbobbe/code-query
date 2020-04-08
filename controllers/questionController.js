@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
     query.UserId = req.query.UserId;
   }
   db.Question.findAll({
-    raw: true,
     where: query,
     include: [db.User, db.Answer]
   }).then(data => {

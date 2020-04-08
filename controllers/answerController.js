@@ -47,8 +47,10 @@ router.get("/api/answers/:id?", (req, res) => {
 router.post("/api/answers", (req, res) => {
   const newAnswer = {
     answerText: req.body.answerText,
-    answerTag: req.body.answerTag,
-    date: req.body.date
+    // answerTag: req.body.answerTag,
+    QuestionId: req.body.QuestionId,
+    UserId: req.body.QuestionId
+    // date: req.body.date
   };
 
   db.Answer.create(newAnswer)
@@ -65,7 +67,7 @@ router.post("/api/answers", (req, res) => {
 router.put("/api/answers/:id", (req, res) => {
   const updAnswer = {
     answerText: req.body.answerText,
-    answerTag: req.body.answerTag,
+    // answerTag: req.body.answerTag,
     date: req.body.date
   };
   db.Answer.update(updAnswer, {
