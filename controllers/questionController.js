@@ -173,6 +173,25 @@ router.get("/api/question/:questionTag?", (req, res) => {
     })
       .then(data => {
         res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+        status(500).end();
+      });
+  } else {
+    db.Question.findAll({ raw: true }).then(data => {
+      res.json(data);
+    });
+  }
+});
+
+router.get("/question/:questionTag?", (req, res) => {
+  if (req.params.questionTag) {
+    db.Question.findAll({
+      where: { questionTag: req.params.questionTag },
+      raw: true
+    })
+      .then(data => {
         res.render("index", { questions: data });
       })
       .catch(err => {

@@ -27,13 +27,14 @@ $(document).ready(function() {
   });
 
   function renderQuestionTagQuestions(questionTag) {
-    const url = "/api/question/" + questionTag;
+    const url = "/question/" + questionTag;
     console.log(url);
+    window.location.href = url;
     //render questions display in index.handlebars in questions
 
     // $.get(url, function() {
 
-    //   //  ("index", { questions: data });
-    // });
+  //   //   //  ("index", { questions: data });
+  //   // });
   }
 });
