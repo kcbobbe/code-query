@@ -11,7 +11,7 @@
         <div class="content">
             {{id}}
             <p>
-                <em>By: <span class="userEmail">{{'User.email'}}</span></em> on {{updatedAt}}
+                <em>By: <span class="userUsername">{{'User.username'}}</span></em> on {{updatedAt}}
                 <br> {{questionText}} <br>
                 <span class="tag is-dark">{{questionTag}}</span> |
                 <a class="viewReplies">View Replies</a> |
@@ -33,11 +33,13 @@
         </div>
         <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
             No replies yet
-            {{#each Answers}}
-                {{!-- {{#if questions.id = answers.id}} --}}
-                    {{> answers/answer_block}}
-                {{!-- {{/if}} --}}
-            {{/each}}
+           
+              {{#each Answers}}
+                
+               {{> answers/answer_block}}
+                
+              {{/each}}
+            
             <a class="hideReplies">Hide Replies</a>
         </article>
 
@@ -53,7 +55,7 @@
     <div class="media-content">
       <div class="content">
         <p id="question">
-          <i>By: <span class="userEmail">{{'User.email'}}</span> </i> on {{updatedAt}}
+          <i>By: <span class="userUsername">{{'User.username'}}</span> </i> on {{updatedAt}}
           <br> {{questionText}} <br>
           <a class="tag">{{questionTag}}</a> · <small><a>Replies</a> "timestamp" </small>
 

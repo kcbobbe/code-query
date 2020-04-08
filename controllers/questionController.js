@@ -15,8 +15,37 @@ router.get("/", (req, res) => {
     where: query,
     include: [db.User, db.Answer]
   }).then(data => {
-    console.log(data);
-    res.render("index", { questions: data });
+    const newData = data.map(d => {
+      const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+      // const newUser = d.User.map(u => {
+      //   return {
+      //     email: u.email
+      //   };
+      // });
+
+      const newAnswers = d.Answers.map(a => {
+        const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+        return {
+          id: a.id,
+          answerText: a.answerText,
+          answerTag: a.answerTag,
+          dateTime: newAnswerDT
+        };
+      });
+
+      return {
+        id: d.id,
+        questionText: d.questionText,
+        questionTag: d.questionTag,
+        dateTime: newDT,
+        User: d.User,
+        Answers: newAnswers
+      };
+    });
+    console.log(`user email is ${newData[0].Answers[0].answerText}`);
+    res.render("index", { questions: newData });
   });
 });
 
@@ -29,7 +58,6 @@ router.get("/api/questions", (req, res) => {
     where: query,
     include: [db.User, db.Answer]
   }).then(data => {
-    console.log(data);
     const newData = data.map(d => {
       const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
 
