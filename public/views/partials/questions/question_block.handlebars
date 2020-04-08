@@ -33,11 +33,13 @@
         </div>
         <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
             No replies yet
-            {{#each Answers}}
-                {{!-- {{#if questions.id = answers.id}} --}}
-                    {{> answers/answer_block}}
-                {{!-- {{/if}} --}}
-            {{/each}}
+           
+              {{#each Answers}}
+                
+               {{> answers/answer_block}}
+                
+              {{/each}}
+            
             <a class="hideReplies">Hide Replies</a>
         </article>
 
