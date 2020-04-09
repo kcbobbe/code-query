@@ -7,6 +7,8 @@ $(document).ready(function() {
     $(".navbar-menu").toggleClass("is-active");
   });
 
+  //filter questions by questiontag
+
   $(".QTag").click(function(event) {
     const questionTag = event.target.id;
     console.log(questionTag + "clicked");
