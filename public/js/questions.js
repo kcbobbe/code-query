@@ -4,6 +4,9 @@ $(document).ready(function() {
     userId = data.id;
   });
 
+  const simplemde = new SimpleMDE({ element: $("#questionText")[0] });
+  simplemde.value("Write your question here");
+
   $("#questionForm").on("submit", function(event) {
     event.preventDefault();
     console.log(userId);
@@ -13,9 +16,7 @@ $(document).ready(function() {
       .val();
 
     let newQuestion = {
-      questionText: $("#questionText")
-        .val()
-        .trim(),
+      questionText: simplemde.value().trim(),
       questionTag: selectedTag,
       UserId: userId
     };
@@ -31,49 +32,21 @@ $(document).ready(function() {
   //onclick view replies
   $(".viewReplies").on("click", event => {
     event.preventDefault();
-    let parentElement = $(event.target)
-      .parent()
-      .parent()
-      .parent()
-      .parent();
-    console.log(parentElement);
-    console.log(parentElement.attr("data-id"));
-    let dataId = parentElement.attr("data-id");
-    // if ($(`#repliesContainer${dataId}`).hasClass("block")) {
+    let dataId = $(event.target).attr("data-id");
     $(`#repliesContainer${dataId}`).css("display", "block");
-    console.log($(`#repliesContainer${dataId}`));
-    //Hides "No replies yet" text
     $("#noReplies").css("display", "none");
-    // console.log("show")
-    // } else {
-    // $(`#repliesContainer${dataId}`).addClass("hide");
-    // console.log("hide")
-    // }
   });
 
   $(".hideReplies").on("click", event => {
     event.preventDefault();
-    let parentElement = $(event.target)
-      .parent()
-      .parent()
-      .parent();
-    console.log(parentElement);
-    console.log(parentElement.attr("data-id"));
-    let dataId = parentElement.attr("data-id");
+    let dataId = $(event.target).attr("data-id");
     $(`#repliesContainer${dataId}`).css("display", "none");
     console.log($(`#repliesContainer${dataId}`));
   });
 
   $(".showReplyForm").on("click", event => {
     event.preventDefault();
-    let parentElement = $(event.target)
-      .parent()
-      .parent()
-      .parent()
-      .parent();
-    console.log(parentElement);
-    console.log(parentElement.attr("data-id"));
-    let dataId = parentElement.attr("data-id");
+    let dataId = $(event.target).attr("data-id");
     $(`#replyForm${dataId}`).css("display", "block");
     console.log($(`#replyForm${dataId}`));
   });

@@ -3,6 +3,8 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 const moment = require("moment");
+const MarkdownIt = require("markdown-it");
+md = new MarkdownIt();
 
 db.Question.sync();
 //HTML route for main page
@@ -32,7 +34,7 @@ router.get("/", (req, res) => {
       //Mapping questions array with updated Answers and date
       return {
         id: d.id,
-        questionText: d.questionText,
+        questionText: md.render(d.questionText),
         questionTag: d.questionTag,
         dateTime: newDT,
         User: d.User,
@@ -71,7 +73,8 @@ router.get("/question/:questionTag?", (req, res) => {
 
       return {
         id: d.id,
-        questionText: d.questionText,
+        // questionText: d.questionText,
+        questionText: md.render(d.questionText),
         questionTag: d.questionTag,
         dateTime: newDT,
         User: d.User,
