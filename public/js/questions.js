@@ -32,7 +32,7 @@ $(document).ready(function() {
   //onclick view replies
   $(".viewReplies").on("click", event => {
     event.preventDefault();
-    let dataId = $(event.target).attr("data-id")
+    let dataId = $(event.target).attr("data-id");
     $(`#repliesContainer${dataId}`).css("display", "block");
     $("#noReplies").css("display", "none");
   });

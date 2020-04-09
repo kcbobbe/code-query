@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 const moment = require("moment");
-const MarkdownIt = require("markdown-it")
+const MarkdownIt = require("markdown-it");
 md = new MarkdownIt();
 
 db.Question.sync();
