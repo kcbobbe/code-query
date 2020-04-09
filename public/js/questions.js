@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  const socket = io();
+  //message from server
+  socket.on("newPost", msg => {
+    outputMessage(msg);
+  });
+
   let userId;
   $.get("/api/user_data").then(function(data) {
     userId = data.id;
@@ -32,6 +38,8 @@ $(document).ready(function() {
       data: newQuestion
     }).then(function() {
       console.log("created new question");
+      //Broadcast the question
+      socket.emit("newPost", newQuestion);
       location.reload();
     });
   });
@@ -56,4 +64,10 @@ $(document).ready(function() {
     $(`#replyForm${dataId}`).css("display", "block");
     console.log($(`#replyForm${dataId}`));
   });
+
+  //Output message on DOM
+  function outputMessage(msg) {
+    console.log("got new event" + msg);
+    location.reload();
+  }
 });

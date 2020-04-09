@@ -72,10 +72,6 @@ passport.deserializeUser(function(obj, cb) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// // Requiring our routes
-// require("./routes/html-routes.js")(app);
-// require("./routes/api-routes.js")(app);
-
 // Import routes and give the server access to them.
 const routes = require("./controllers/userController");
 const qRoutes = require("./controllers/questionController");
@@ -87,9 +83,14 @@ app.use(routes, qRoutes, aRoutes);
 let io = socketIO(server);
 
 io.on("connection", socket => {
-  console.log("New socket connection.....................");
+  console.log("New socket connection on console.....................");
 
-  socket.emit("msg", "-------Welcome from socket server!--------");
+  socket.emit("msg", "-------Welcome from socket server! UI--------");
+
+  socket.on("newPost", msg => {
+    console.log(msg);
+    io.emit("newPost", msg);
+  });
 });
 
 // Syncing our database and logging a message to the user upon success
