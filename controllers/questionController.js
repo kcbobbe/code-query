@@ -163,7 +163,7 @@ router.delete("/api/questions/:id", (req, res) => {
     });
 });
 
-//----questionTag route (is question without s)--------
+//----questionTag route (question without s here)--------
 
 router.get("/api/question/:questionTag?", (req, res) => {
   if (req.params.questionTag) {

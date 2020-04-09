@@ -8,21 +8,8 @@ $(document).ready(function() {
     $(".navbar-menu").toggleClass("is-active");
   });
 
-  $("#HTMLTag").click(function() {
-    const questionTag = "HTML";
-    console.log(questionTag);
-    renderQuestionTagQuestions(questionTag);
-  });
-
-  $("#CSSTag").click(function() {
-    const questionTag = "CSS";
-    console.log(questionTag);
-    renderQuestionTagQuestions(questionTag);
-  });
-
-  $("#JSTag").click(function() {
-    const questionTag = "JavaScript";
-    console.log(questionTag);
+  $(".QTag").click(function(event) {
+    const questionTag = event.target.id;
     renderQuestionTagQuestions(questionTag);
   });
 
@@ -30,11 +17,5 @@ $(document).ready(function() {
     const url = "/question/" + questionTag;
     console.log(url);
     window.location.href = url;
-    //render questions display in index.handlebars in questions
-
-    // $.get(url, function() {
-
-    //   //   //  ("index", { questions: data });
-    //   // });
   }
 });
