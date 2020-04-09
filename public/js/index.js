@@ -5,14 +5,14 @@ $(document).ready(function() {
       $("#logoutButton").css("display");
       $("#loginButton").css("display", "none");
       $("#signupButton").css("display", "none");
-      $("#askQuestion").css("display", "");
+      // $("#askQuestion").css("display", "");
       $(".replyButton").css("display", "");
       console.log("logged in");
     } else {
       $("#logoutButton").css("display", "none");
       $("#loginButton").css("display");
       $("#signupButton").css("display");
-      $("#askQuestion").css("display", "none");
+      // $("#askQuestion").css("display", "none");
       $(".replyButton").css("display", "none");
       console.log("logged out");
     }

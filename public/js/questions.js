@@ -4,6 +4,9 @@ $(document).ready(function() {
     userId = data.id;
   });
 
+  const simplemde = new SimpleMDE({ element: $("#questionText")[0] });
+  simplemde.value("This text will appear in the editor");
+
   $("#questionForm").on("submit", function(event) {
     event.preventDefault();
     console.log(userId);

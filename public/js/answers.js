@@ -13,8 +13,8 @@ $(document).ready(function() {
         .val()
         .trim(),
       // answerTag: "JavaScript",
-      QuestionId: 1,
-      UserId: 1
+      QuestionId: questionId,
+      UserId: userId
     };
 
     $.ajax("/api/answers", {
