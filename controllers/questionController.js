@@ -1,3 +1,4 @@
+// const moment = require("moment");
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
@@ -45,7 +46,7 @@ router.get("/", (req, res) => {
         Answers: newAnswers
       };
     });
-    console.log(`answers is ${newData[2].Answers.length}`);
+    // console.log(`user email is ${newData[0].Answers[0].answerText}`);
     res.render("index", { questions: newData });
   });
 });
@@ -164,44 +165,114 @@ router.delete("/api/questions/:id", (req, res) => {
 
 //----questionTag route (question without s here)--------
 
-router.get("/api/question/:questionTag?", (req, res) => {
-  if (req.params.questionTag) {
-    db.Question.findAll({
-      where: { questionTag: req.params.questionTag },
-      raw: true
-    })
-      .then(data => {
-        res.json(data);
-      })
-      .catch(err => {
-        console.log(err);
-        status(500).end();
-      });
-  } else {
-    db.Question.findAll({ raw: true }).then(data => {
-      res.json(data);
-    });
+router.get("/api/question", (req, res) => {
+  const query = {};
+  if (req.query.UserId) {
+    query.UserId = req.query.UserId;
   }
+  db.Question.findAll({
+    where: query,
+    include: [db.User, db.Answer]
+  }).then(data => {
+    const newData = data.map(d => {
+      const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+      const newAnswers = d.Answers.map(a => {
+        const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+        return {
+          id: a.id,
+          answerText: a.answerText,
+          answerTag: a.answerTag,
+          dateTime: newAnswerDT
+        };
+      });
+
+      return {
+        id: d.id,
+        questionText: d.questionText,
+        questionTag: d.questionTag,
+        dateTime: newDT,
+        User: d.User,
+        Answers: newAnswers
+      };
+    });
+    res.json(newData);
+  });
+});
+
+router.get("/api/question/:questionTag?", (req, res) => {
+  const query = {};
+  if (req.query.questionTag) {
+    query.questionTag = req.query.questionTag;
+  }
+  db.Question.findAll({
+    where: { questionTag: req.params.questionTag },
+    include: [db.User, db.Answer]
+  }).then(data => {
+    const newData = data.map(d => {
+      const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+      const newAnswers = d.Answers.map(a => {
+        const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+        return {
+          id: a.id,
+          answerText: a.answerText,
+          answerTag: a.answerTag,
+          dateTime: newAnswerDT
+        };
+      });
+
+      return {
+        id: d.id,
+        questionText: d.questionText,
+        questionTag: d.questionTag,
+        dateTime: newDT,
+        User: d.User,
+        Answers: newAnswers
+      };
+    });
+    res.json(newData);
+  });
 });
 
 router.get("/question/:questionTag?", (req, res) => {
-  if (req.params.questionTag) {
-    db.Question.findAll({
-      where: { questionTag: req.params.questionTag },
-      raw: true
-    })
-      .then(data => {
-        res.render("index", { questions: data });
-      })
-      .catch(err => {
-        console.log(err);
-        status(500).end();
-      });
-  } else {
-    db.Question.findAll({ raw: true }).then(data => {
-      res.json(data);
-    });
+  const query = {};
+  if (req.query.questionTag) {
+    query.questionTag = req.query.questionTag;
   }
+  db.Question.findAll({
+    where: { questionTag: req.params.questionTag },
+    include: [db.User, db.Answer]
+  }).then(data => {
+    const newQTData = data.map(d => {
+      const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+      const newAnswers = d.Answers.map(a => {
+        const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+        return {
+          id: a.id,
+          answerText: a.answerText,
+          answerTag: a.answerTag,
+          dateTime: newAnswerDT,
+          username: d.User.username
+        };
+      });
+
+      return {
+        id: d.id,
+        questionText: d.questionText,
+        questionTag: d.questionTag,
+        dateTime: newDT,
+        User: d.User,
+        username: d.User.username,
+        Answers: newAnswers
+      };
+    });
+    res.render("index", { questions: newQTData });
+  });
 });
 
 module.exports = router;

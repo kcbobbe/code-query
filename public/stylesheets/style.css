@@ -3,13 +3,17 @@ form.login {
   margin-top: 50px;
 }
 
+.navbar {
+  /* background-color: black!important; */
+}
+
 .hide{
   display:none;
 }
 
 body{
   font-family: 'Raleway', sans-serif;
-  background-color: #F4FDFB;
+  /* background-color: #F4FDFB; */
 }
 
 .card {
@@ -42,9 +46,13 @@ body{
   font-weight: bold;
 }
 
+.postedText{
+  padding-top: 20px;
+}
+
 
 .hero-body{
-  background-color: white;
+  background-color: whitesmoke;
   border-bottom: 1px solid #00D1B2;
   font-size: 1.2em;
   /* box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19); */
