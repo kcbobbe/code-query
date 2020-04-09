@@ -8,7 +8,7 @@ $(document).ready(function() {
     $(".navbar-menu").toggleClass("is-active");
   });
 
-  $(".QTag").click(function(event){
+  $(".QTag").click(function(event) {
     const questionTag = event.target.id;
     renderQuestionTagQuestions(questionTag);
   });

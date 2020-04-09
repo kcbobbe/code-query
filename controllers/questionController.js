@@ -192,7 +192,7 @@ router.get("/question/:questionTag?", (req, res) => {
       raw: true
     })
       .then(data => {
-        res.render("index",{ questions: data });
+        res.render("index", { questions: data });
       })
       .catch(err => {
         console.log(err);
