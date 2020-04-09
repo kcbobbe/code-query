@@ -45,7 +45,7 @@ router.get("/", (req, res) => {
         Answers: newAnswers
       };
     });
-    // console.log(`user email is ${newData[0].Answers[0].answerText}`);
+    console.log(`answers is ${newData[2].Answers.length}`);
     res.render("index", { questions: newData });
   });
 });
