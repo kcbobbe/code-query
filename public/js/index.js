@@ -1,6 +1,3 @@
-// const loginBtn = require("./login");
-// const loginBtnClicked = loginBtn.getLoginBtn();
-// console.log("login" + loginBtnClicked);
 $(document).ready(function() {
   $.get("/api/user_data", function(req) {
     if (req.id) {
