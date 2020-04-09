@@ -90,6 +90,11 @@ io.on("connection", socket => {
   console.log("New socket connection.....................");
 
   socket.emit("msg", "-------Welcome from socket server!--------");
+
+  socket.on("newPost", msg => {
+    console.log(msg);
+    io.emit("newPost", msg);
+  });
 });
 
 // Syncing our database and logging a message to the user upon success
