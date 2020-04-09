@@ -4,8 +4,14 @@ $(document).ready(function() {
     userId = data.id;
   });
 
-  const simplemde = new SimpleMDE({ element: $("#questionText")[0] });
-  simplemde.value("Write your question here");
+  const simplemde = new SimpleMDE({
+    element: $("#questionText")[0],
+    placeholder: "Type markdown here...",
+    showIcons: ["code", "table"],
+    hideIcons: ["side-by-side"]
+  });
+
+  // simplemde.value("Write your question here");
 
   $("#questionForm").on("submit", function(event) {
     event.preventDefault();
