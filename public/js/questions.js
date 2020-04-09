@@ -16,9 +16,7 @@ $(document).ready(function() {
       .val();
 
     let newQuestion = {
-      questionText: $("#questionText")
-        .val()
-        .trim(),
+      questionText: simplemde.value().trim(),
       questionTag: selectedTag,
       UserId: userId
     };
