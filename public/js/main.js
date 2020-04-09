@@ -1,5 +1,4 @@
 // const $allQuestionContainer = $(".allQuestion");
-// const socket = io();
 $(document).ready(function() {
   const socket = io();
   socket.on("msg", message => {
@@ -11,6 +10,8 @@ $(document).ready(function() {
     $(".navbar-burger").toggleClass("is-active");
     $(".navbar-menu").toggleClass("is-active");
   });
+
+  //filter questions by questiontag
 
   $(".QTag").click(function(event) {
     const questionTag = event.target.id;
