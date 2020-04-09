@@ -32,14 +32,13 @@
             </form>
         </div>
         <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
-            <p id="noReplies">No replies yet</p>
-           
-              {{#each Answers}}
-                
-               {{> answers/answer_block}}
-                
-              {{/each}}
-            
+              {{#if Answers.length}}         
+                {{#each Answers}}
+                  {{> answers/answer_block}}
+                {{/each}}
+              {{else}}
+                    <p id="noReplies">No replies yet</p>
+              {{/if}}
             <a class="hideReplies">Hide Replies</a>
         </article>
 
