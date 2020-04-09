@@ -1,7 +1,7 @@
 $(document).ready(function() {
   const socket = io();
   //message from server
-  socket.on('newPost', msg => {
+  socket.on("newPost", msg => {
     outputMessage(msg);
   });
 
