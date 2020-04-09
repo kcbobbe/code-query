@@ -10,14 +10,10 @@ $(document).ready(function() {
     $.get("/api/questions").then(data => {
       data.forEach(question => {
         if (question.UserId === userId) {
-          console.log(question);
+          
           userQuestions.push(question);
         }
       });
     });
-    // $.get("/api/questions")
-    //   .then(function(data))
-    // we can use this array to display questions on members page
-    console.log(userQuestions);
   });
 });

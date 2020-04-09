@@ -4,8 +4,10 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
+const http = require("http");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
+const socketIO = require("socket.io");
 
 //github oauth
 // var GitHubStrategy = require("passport-github").Strategy;
@@ -42,6 +44,9 @@ var db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 var app = express();
+//Creating new server to integrate with socket.io
+let server = http.createServer(app);
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -76,12 +81,20 @@ const routes = require("./controllers/userController");
 const qRoutes = require("./controllers/questionController");
 const aRoutes = require("./controllers/answerController");
 app.use(routes, qRoutes, aRoutes);
-// app.use(qRoutes);
-// app.use(aRoutes);
+
+//Run when a client connects
+
+let io = socketIO(server);
+
+io.on("connection", socket => {
+  console.log("New socket connection.....................");
+
+  socket.emit("msg", "-------Welcome from socket server!--------");
+});
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
+  server.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
