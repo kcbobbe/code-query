@@ -3,11 +3,10 @@ $(document).ready(function() {
   var loginForm = $("form.login");
   var usernameInput = $("input#username-input");
   var passwordInput = $("input#password-input");
-  // var loginBtnClicked = false;
+
   // When the form is submitted, we validate there's an username and password entered
   loginForm.on("submit", function(event) {
     event.preventDefault();
-    // loginBtnClicked = true;
     var userData = {
       username: usernameInput.val().trim(),
       password: passwordInput.val().trim()
@@ -40,10 +39,3 @@ $(document).ready(function() {
       });
   }
 });
-
-// function getLoginBtn() {
-//   console.log(loginBtnClicked);
-//   return loginBtnClicked;
-// }
-
-// module.exports.getLoginBtn = getLoginBtn;

@@ -31,7 +31,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
-        window.location.replace("/login");
+        window.location.replace("/");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
@@ -39,5 +39,8 @@ $(document).ready(function() {
 
   function handleLoginErr(err) {
     console.log(err);
+    $("#alert .msg").text("  Username exists!");
+    $("#alert").fadeIn(500);
+    return;
   }
 });
