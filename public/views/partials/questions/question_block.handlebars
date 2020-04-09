@@ -9,7 +9,6 @@
 <article class="media" data-id={{id}}>
     <div class="media-content">
         <div class="content">
-            {{id}}
             <p>
                 <em>By: <span class="userUsername">{{username}}</span></em> on {{dateTime}}
                 <br><span class="postedText"> {{questionText}} </span><br>
@@ -37,7 +36,7 @@
                   {{> answers/answer_block}}
                 {{/each}}
               {{else}}
-                    <p id="noReplies">No replies yet</p>
+                    <p>No replies yet</p>
               {{/if}}
             <a class="hideReplies">Hide Replies</a>
         </article>
