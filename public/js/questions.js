@@ -40,9 +40,11 @@ $(document).ready(function() {
     console.log(parentElement);
     console.log(parentElement.attr("data-id"));
     let dataId = parentElement.attr("data-id");
-    // if ($(`#repliesContainer${dataId}`).hasClass("hide")) {
+    // if ($(`#repliesContainer${dataId}`).hasClass("block")) {
     $(`#repliesContainer${dataId}`).css("display", "block");
     console.log($(`#repliesContainer${dataId}`));
+    //Hides "No replies yet" text
+    $("#noReplies").css("display", "none");
     // console.log("show")
     // } else {
     // $(`#repliesContainer${dataId}`).addClass("hide");

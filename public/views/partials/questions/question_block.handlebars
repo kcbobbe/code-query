@@ -9,10 +9,9 @@
 <article class="media" data-id={{id}}>
     <div class="media-content">
         <div class="content">
-            {{id}}
             <p>
                 <em>By: <span class="userUsername">{{username}}</span></em> on {{dateTime}}
-                <br> {{{questionText}}} <br>
+                <br><span class="postedText"> {{questionText}} </span><br>
                 <span class="tag is-dark">{{questionTag}}</span> |
                 <a class="viewReplies">View Replies</a> |
                 <a class="showReplyForm replyButton" style="display:none">Reply</a>
@@ -32,15 +31,13 @@
             </form>
         </div>
         <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
-            {{!-- need to add something to conditionally show no replies yet --}}
-            No replies yet
-           
-              {{#each Answers}}
-                
-               {{> answers/answer_block}}
-                
-              {{/each}}
-            
+              {{#if Answers.length}}         
+                {{#each Answers}}
+                  {{> answers/answer_block}}
+                {{/each}}
+              {{else}}
+                    <p>No replies yet</p>
+              {{/if}}
             <a class="hideReplies">Hide Replies</a>
         </article>
 
