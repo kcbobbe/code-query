@@ -11,10 +11,10 @@
         <div class="content">
             <p>
                 <em>By: <span class="userUsername">{{username}}</span></em> on {{dateTime}}
-                <br><span class="postedText"> {{questionText}} </span><br>
+                <br><span class="postedText"> {{{questionText}}} </span><br>
                 <span class="tag is-dark">{{questionTag}}</span> |
-                <a class="viewReplies">View Replies</a> |
-                <a class="showReplyForm replyButton" style="display:none">Reply</a>
+                <a class="viewReplies" data-id={{id}}>View Replies</a> |
+                <a class="showReplyForm replyButton" style="display:none" data-id={{id}}>Reply</a>
             </p>
         </div>
         <div class="replyForm" id=replyForm{{id}} style="display:none">
@@ -38,7 +38,7 @@
               {{else}}
                     <p>No replies yet</p>
               {{/if}}
-            <a class="hideReplies">Hide Replies</a>
+            <a class="hideReplies" data-id={{id}}>Hide Replies</a>
         </article>
 
     </div>

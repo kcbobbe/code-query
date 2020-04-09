@@ -49,7 +49,7 @@ router.post("/api/answers", (req, res) => {
     answerText: req.body.answerText,
     // answerTag: req.body.answerTag,
     QuestionId: req.body.QuestionId,
-    UserId: req.body.QuestionId
+    UserId: req.body.UserId
     // date: req.body.date
   };
 
