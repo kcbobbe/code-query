@@ -10,7 +10,6 @@ $(document).ready(function() {
     $.get("/api/questions").then(data => {
       data.forEach(question => {
         if (question.UserId === userId) {
-          
           userQuestions.push(question);
         }
       });
