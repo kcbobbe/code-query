@@ -31,7 +31,11 @@
     "passport-local": "^1.0.0",
     "prettier-eslint": "^9.0.1",
     "sequelize": "^5.8.6",
+<<<<<<< HEAD
     "simplemde": "^1.11.2"
+=======
+    "socket.io": "^2.3.0"
+>>>>>>> 7929a9d52fdb2cc4d1d16609102b71189f4d5816
   },
   "devDependencies": {
     "chai": "^4.1.2",
