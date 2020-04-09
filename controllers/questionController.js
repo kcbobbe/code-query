@@ -25,10 +25,11 @@ router.get("/", (req, res) => {
         //mapping Answers array with updated date
         return {
           id: a.id,
-          answerText: a.answerText,
+          answerText: md.render(a.answerText),
           answerTag: a.answerTag,
           dateTime: newAnswerDT,
-          username: d.User.username
+          username: d.User.username,
+          questionId: d.id
         };
       });
       //Mapping questions array with updated Answers and date
@@ -64,7 +65,7 @@ router.get("/question/:questionTag?", (req, res) => {
 
         return {
           id: a.id,
-          answerText: a.answerText,
+          answerText: md.render(a.answerText),
           answerTag: a.answerTag,
           dateTime: newAnswerDT,
           username: d.User.username
