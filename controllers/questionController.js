@@ -5,24 +5,57 @@ const db = require("../models");
 const moment = require("moment");
 
 db.Question.sync();
-
+//HTML route for main page
 router.get("/", (req, res) => {
   const query = {};
   if (req.query.UserId) {
     query.UserId = req.query.UserId;
   }
+  //Finding all questions
   db.Question.findAll({
     where: query,
     include: [db.User, db.Answer]
   }).then(data => {
     const newData = data.map(d => {
       const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+      const newAnswers = d.Answers.map(a => {
+        const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+        //mapping Answers array with updated date
+        return {
+          id: a.id,
+          answerText: a.answerText,
+          answerTag: a.answerTag,
+          dateTime: newAnswerDT,
+          username: d.User.username
+        };
+      });
+      //Mapping questions array with updated Answers and date
+      return {
+        id: d.id,
+        questionText: d.questionText,
+        questionTag: d.questionTag,
+        dateTime: newDT,
+        User: d.User,
+        username: d.User.username,
+        Answers: newAnswers
+      };
+    });
+    res.render("index", { questions: newData });
+  });
+});
 
-      // const newUser = d.User.map(u => {
-      //   return {
-      //     email: u.email
-      //   };
-      // });
+//HTML route on click question tag in navbar
+router.get("/question/:questionTag?", (req, res) => {
+  const query = {};
+  if (req.query.questionTag) {
+    query.questionTag = req.query.questionTag;
+  }
+  db.Question.findAll({
+    where: { questionTag: req.params.questionTag },
+    include: [db.User, db.Answer]
+  }).then(data => {
+    const newQTData = data.map(d => {
+      const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
 
       const newAnswers = d.Answers.map(a => {
         const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
@@ -46,10 +79,11 @@ router.get("/", (req, res) => {
         Answers: newAnswers
       };
     });
-    // console.log(`user email is ${newData[0].Answers[0].answerText}`);
-    res.render("index", { questions: newData });
+    res.render("index", { questions: newQTData });
   });
 });
+
+//-----------------------------API routes----------------------------
 
 router.get("/api/questions", (req, res) => {
   const query = {};
@@ -234,44 +268,6 @@ router.get("/api/question/:questionTag?", (req, res) => {
       };
     });
     res.json(newData);
-  });
-});
-
-router.get("/question/:questionTag?", (req, res) => {
-  const query = {};
-  if (req.query.questionTag) {
-    query.questionTag = req.query.questionTag;
-  }
-  db.Question.findAll({
-    where: { questionTag: req.params.questionTag },
-    include: [db.User, db.Answer]
-  }).then(data => {
-    const newQTData = data.map(d => {
-      const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
-
-      const newAnswers = d.Answers.map(a => {
-        const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
-
-        return {
-          id: a.id,
-          answerText: a.answerText,
-          answerTag: a.answerTag,
-          dateTime: newAnswerDT,
-          username: d.User.username
-        };
-      });
-
-      return {
-        id: d.id,
-        questionText: d.questionText,
-        questionTag: d.questionTag,
-        dateTime: newDT,
-        User: d.User,
-        username: d.User.username,
-        Answers: newAnswers
-      };
-    });
-    res.render("index", { questions: newQTData });
   });
 });
 
