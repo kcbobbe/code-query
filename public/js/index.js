@@ -31,6 +31,7 @@ $(document).ready(function() {
       const url = "/member/" + UserId;
       console.log(url);
       window.location.href = url;
+      $("#askQuestion").css("display", "none");
     }
   });
 });

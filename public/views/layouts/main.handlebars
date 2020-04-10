@@ -4,6 +4,7 @@
   <head>
       <meta charset="UTF-8">
         <!-- google fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
         {{!-- <link href="https://fonts.googleapis.com/css?family=Kulim+Park|Mansalva|Oxanium&display=swap" rel="stylesheet"> --}}
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css" rel ="stylesheet">
@@ -15,10 +16,10 @@
   </head>
 
   <body>
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          <i class="fa fa-users" style="margin-right: .25em" aria-hidden="true"></i>
+        <a class="navbar-item navbar-title" href="/">
+          <i class="fa fa-users fa-fw" style="margin-right: .25em" aria-hidden="true"></i>
           <h1 id="navTitle"><strong> Mentor Match </strong></h1>
         </a>
     
@@ -44,21 +45,21 @@
     
             <div class="navbar-dropdown">
               <a class="navbar-item QTag" id="HTML">
-                HTML
+                <i class="fa fa-html5 fa-fw"></i>HTML 
               </a>
               <a class="navbar-item QTag" id="CSS">
-                CSS
+                <i class="fa fa-css3 fa-fw"></i>CSS
               </a>
               <a class="navbar-item QTag" id="JavaScript">
-                JavaScript
+                <i class="fab fa-js-square fa-fw"></i>JavaScript
               </a>
               <a class="navbar-item QTag" id="Node">
-                Node
+                <i class="fab fa-node-js fa-fw"></i>Node
               </a>
               <a class="navbar-item QTag" id="Databases">
-                Databases
+                <i class="fa fa-database fa-fw"></i>Databases
               </a>
-              <hr class="navbar-divider">
+              <hr4>
               <a class="navbar-item memberSection">
                 Go To Member Section
               </a>
@@ -69,7 +70,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a id="signupButton" class="button is-primary" href="/signup">
+              <a id="signupButton" class="button" href="/signup">
                 <strong>Sign up</strong>
               </a>
               <a id="loginButton" class="button is-light" href="/login">
@@ -81,7 +82,7 @@
             </div>
           </div>
           <div class="navbar-item">
-            <form id="search-form">
+            {{!-- <form id="search-form">
               <div class="field has-addons">
               <div class="control">
                 <input class="input" id="searchField" type="text" placeholder="Search">
@@ -94,7 +95,7 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form> --}}
         </div>
 
         </div>
