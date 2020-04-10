@@ -16,7 +16,7 @@ $(document).ready(function() {
     }
     $(".memberSection").on("click", event => {
       event.preventDefault();
-       //Get userID of current user
+      //Get userID of current user
       const CurrentUser = req.id;
       renderMemberQuestion(CurrentUser);
     });
@@ -50,7 +50,7 @@ $(document).ready(function() {
         newDeleteButton.attr("data-id", questionId);
         //Adding delete button in the card and calling AJAX delete if pressed
         $(this).append(newDeleteButton);
-        
+
         $(".delete-button").each(() => {
           let qid = $(this).attr("data-id");
           $(this).on("click", () => {

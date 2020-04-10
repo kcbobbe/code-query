@@ -39,10 +39,10 @@ router.get("/api/answers/:id?", (req, res) => {
 
 router.post("/api/answers", (req, res) => {
   const newAnswer = {
-      answerText: req.body.answerText,
-      QuestionId: req.body.QuestionId,
-      UserId: req.body.UserId
-    };
+    answerText: req.body.answerText,
+    QuestionId: req.body.QuestionId,
+    UserId: req.body.UserId
+  };
 
   db.Answer.create(newAnswer)
     .then(data => {

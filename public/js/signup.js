@@ -36,7 +36,7 @@ $(document).ready(function() {
       })
       .catch(handleLoginErr);
   }
- //Displaying message if the username already exists!
+  //Displaying message if the username already exists!
   function handleLoginErr(err) {
     console.log(err);
     $("#alert .msg").text("  Username exists!");
