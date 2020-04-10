@@ -2,17 +2,17 @@ $(document).ready(function() {
   $.get("/api/user_data", function(req) {
     if (req.id) {
       // The user is not logged in, send back an empty object
-      $("#logoutButton").css("display");
-      $("#loginButton").css("display", "none");
-      $("#signupButton").css("display", "none");
-      $("#askQuestion").css("display", "");
-      $(".replyButton").css("display", "");
+      $("#logoutButton").removeClass("hide");
+      $("#loginButton").addClass("hide");
+      $("#signupButton").addClass("hide");
+      $("#askQuestion").removeClass("hide");
+      $(".replyButton").removeClass("hide");
     } else {
-      $("#logoutButton").css("display", "none");
-      $("#loginButton").css("display");
-      $("#signupButton").css("display");
-      $("#askQuestion").css("display", "none");
-      $(".replyButton").css("display", "none");
+      $("#logoutButton").addClass("hide");
+      $("#loginButton").removeClass("hide");
+      $("#signupButton").removeClass("hide");
+      $("#askQuestion").addClass("hide");
+      $(".replyButton").addClass("hide");
     }
     $(".memberSection").click(function() {
       console.log("member clicked");

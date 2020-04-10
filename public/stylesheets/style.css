@@ -28,7 +28,7 @@ a:hover{
 
 body{
   /* font-family: 'Anonymous Pro', monospace; */
-  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
   /* background-color: #F4FDFB; */
 }
 
@@ -127,4 +127,8 @@ button,
 select,
 .control{
   border-color:#008571!important;
+}
+
+.hide {
+  display: none;
 }
