@@ -26,7 +26,7 @@ $(document).ready(function() {
       event.preventDefault();
       let userId = $(event.target)
         .parent()
-        .attr("data-id");
+        .attr("data-user");
       // console.log(userId)
       renderMemberQuestion(userId);
     });
@@ -36,5 +36,58 @@ $(document).ready(function() {
       window.location.href = url;
       $("#askQuestion").css("display", "none");
     }
+
+    // adding delete button functionality
+    $(".userUsername").each(function() {
+      console.log(this);
+      if (parseInt($(this).data("user")) === parseInt(req.id)) {
+        console.log("matches");
+        $(this).addClass("activeUser");
+      }
+    });
+
+    $(".question").each(function() {
+      console.log(this);
+      if (parseInt($(this).data("user")) === parseInt(req.id)) {
+        console.log("matches q");
+        // // this.addClass("activeUser");
+        // const deleteFunction = qid => {
+        //   $.ajax(`/api/questions/${qid}`, {
+        //     type: "DELETE"
+        //   }).then(() =>{
+        //     // console.log("deleted comment", questionId);
+        //     location.reload();
+        //   });
+        // };
+        let questionId = $(this).data("id");
+        let newDeleteButton = $("<a>");
+        newDeleteButton.text("Delete");
+        newDeleteButton.addClass("delete-button");
+        newDeleteButton.attr("data-id", questionId);
+        console.log(newDeleteButton);
+
+        // newDeleteButton.attr("onclick", deleteFunction(questionId));
+        // newDeleteButton.attr("onclick", deleteFunction(questionId));
+
+        $(this).append(newDeleteButton);
+        // delete
+        $(".delete-button").each(() => {
+          let qid = $(this).attr("data-id");
+          $(this).on("click", () => {
+            $.ajax(`/api/questions/${qid}`, {
+              type: "DELETE"
+            }).then(() => {
+              // console.log("deleted comment", questionId);
+              location.reload();
+            });
+          });
+        });
+      }
+    });
+
+    //   $(".deleteButton").on("click", (event) =>{
+    //     event.preventDefault();
+    //     $.delete("/api/user_data", function(req) {
+    //   })
   });
 });

@@ -132,3 +132,7 @@ select,
 .hide {
   display: none;
 }
+
+.activeUser a {
+  color: palevioletred!important;
+}
