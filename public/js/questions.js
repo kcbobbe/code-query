@@ -12,7 +12,7 @@ $(document).ready(function() {
     userId = data.id;
   });
 
-  const simplemde = new SimpleMDE({
+  let simplemde = new SimpleMDE({
     element: $("#questionText")[0],
     placeholder: "Type markdown here...",
     showIcons: ["code", "table"],

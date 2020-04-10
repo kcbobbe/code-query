@@ -4,7 +4,12 @@
       <a class="button" href="/logout">Logout</a>
     </div>
   </div>
-  
+
+  <div>
+    {{#each questions}}
+      {{> questions/question_block}}
+    {{/each}}
+  </div>
   
   
   {{!-- <nav class="navbar navbar-default">
