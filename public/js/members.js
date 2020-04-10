@@ -13,6 +13,7 @@ $(document).ready(function() {
           userQuestions.push(question);
         }
       });
+      console.log(userQuestions);
     });
-  });
+  })
 });
