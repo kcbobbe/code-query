@@ -29,7 +29,7 @@ $(document).ready(function() {
     });
     simplemde.render();
   });
-
+  // On submit answer creating answer object and calling AJAX post call 
   $(".answerForm").on("submit", function(event) {
     event.preventDefault();
     let questionId = parseInt($(event.target).attr("data-id"));
@@ -37,7 +37,6 @@ $(document).ready(function() {
       answerText: $(`#answerText${questionId}`)
         .val()
         .trim(),
-      // answerTag: "JavaScript",
       QuestionId: questionId,
       UserId: userId
     };

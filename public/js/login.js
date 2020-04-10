@@ -36,6 +36,10 @@ $(document).ready(function() {
       })
       .catch(function(err) {
         console.log(err);
+        console.log(err);
+        $("#alert .msg").text("  Username does not exists! Please /Signup/ and then login");
+        $("#alert").fadeIn(500);
+        return;
       });
   }
 });
