@@ -72,9 +72,8 @@ app.use(routes, qRoutes, aRoutes);
 let io = socketIO(server);
 
 io.on("connection", socket => {
-  console.log("New socket connection on console.....................");
   socket.on("newPost", msg => {
-    console.log(msg);
+    //broadcast the new question/answer to all the connected users
     io.emit("newPost", msg);
   });
 });
