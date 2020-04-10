@@ -24,7 +24,9 @@ $(document).ready(function() {
     });
     $(".userUsername").on("click", event => {
       event.preventDefault();
-      let userId = $(event.target).parent().attr("data-id");
+      let userId = $(event.target)
+        .parent()
+        .attr("data-id");
       // console.log(userId)
       renderMemberQuestion(userId);
     });
