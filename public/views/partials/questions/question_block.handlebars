@@ -15,6 +15,7 @@
                 <span class="tag is-dark">{{questionTag}}</span> |
                 <a class="viewReplies" data-id={{id}}>View Replies</a> |
                 <a class="showReplyForm replyButton" style="display:none" data-id={{id}}>Reply</a>
+                {{!-- {{#if username logged in}}delete button{{/if}} --}}
             </p>
         </div>
         <div class="replyForm" id=replyForm{{id}} style="display:none">
@@ -44,35 +45,4 @@
 </article>
 </div>
 
-{{!-- Stephanie's  styling--}}
-{{!-- <div class= "card question">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p id="question">
-          <i>By: <span class="userUsername">{{'User.username'}}</span> </i> on {{updatedAt}}
-          <br> {{questionText}} <br>
-          <a class="tag">{{questionTag}}</a> · <small><a>Replies</a> "timestamp" </small>
 
-        </p>
-      </div>
-
-      <div class="comment">
-        <article class="media">
-          <div class="media-content">
-            <div class="field">
-              <div class="control">
-                <textarea id="questionText" class="textarea is-primary" placeholder="Add a comment ..."></textarea>
-              </div>
-              <br>
-              <button class="button is-primary" id="postComment">Post comment</button>
-              <br>
-            </div>
-          </div>
-        </article>
-      </div>
-      
-    </div>
-  </article>
-</div>
- --}}
