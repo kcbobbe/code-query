@@ -29,6 +29,7 @@ router.get("/", (req, res) => {
           answerTag: a.answerTag,
           dateTime: newAnswerDT,
           username: d.User.username,
+          userId: d.User.id,
           questionId: d.id
         };
       });
@@ -40,6 +41,7 @@ router.get("/", (req, res) => {
         dateTime: newDT,
         User: d.User,
         username: d.User.username,
+        userId: d.User.id,
         Answers: newAnswers
       };
     });

@@ -12,6 +12,9 @@ $(document).ready(function() {
     userId = data.id;
   });
 
+  //potential fix for serveral textboxes being created
+  $("#questionText").empty();
+
   let simplemde = new SimpleMDE({
     element: $("#questionText")[0],
     placeholder: "Type markdown here...",
