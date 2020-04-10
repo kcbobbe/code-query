@@ -10,33 +10,22 @@ const passport = require("./config/passport");
 const socketIO = require("socket.io");
 
 //github oauth
-// var GitHubStrategy = require("passport-github").Strategy;
+var GitHubStrategy = require("passport-github").Strategy;
 
-// Configure the Github strategy for use by Passport.
-//
-// OAuth 2.0-based strategies require a `verify` function which receives the
-// credential (`accessToken`) for accessing the Github API on the user's
-// behalf, along with the user's profile.  The function must invoke `cb`
-// with a user object, which will be set at `req.user` in route handlers after
-// authentication.
-// passport.use(
-//   new GitHubStrategy(
-//     {
-//       clientID: process.env.GITHUB_CLIENT_ID,
-//       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-//       callbackURL: "/return"
-//     },
-//     function(accessToken, refreshToken, profile, cb) {
-// In this example, the user's Facebook profile is supplied as the user
-// record.  In a production-quality application, the Facebook profile should
-// be associated with a user record in the application's database, which
-// allows for account linking and authentication with other identity
-// providers.
-// User.findOrCreate({ githubId: profile.id }, function (err, user) {
-//       return cb(null, profile);
-//     }
-//   )
-// );
+passport.use(
+  new GitHubStrategy(
+    {
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: "/"
+    },
+    function(accessToken, refreshToken, profile, cb) {
+      User.findOrCreate({ githubId: profile.id }, function(err, user) {
+        return cb(err, user);
+      });
+    }
+  )
+);
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8085;
