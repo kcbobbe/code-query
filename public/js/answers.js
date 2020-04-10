@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  const socket = io();
+  //message from server
+  socket.on("newPost", msg => {
+    outputMessage(msg);
+  });
+
   let userId;
   $.get("/api/user_data").then(function(data) {
     userId = data.id;
@@ -34,7 +40,15 @@ $(document).ready(function() {
       data: newAnswer
     }).then(function() {
       console.log("created new answer");
+      //Broadcast the question
+      socket.emit("newPost", newAnswer);
       location.reload();
     });
   });
+
+  //Output message on DOM
+  function outputMessage(msg) {
+    console.log("got new event" + msg);
+    location.reload();
+  }
 });

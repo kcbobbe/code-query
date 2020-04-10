@@ -275,4 +275,44 @@ router.get("/api/question/:questionTag?", (req, res) => {
   });
 });
 
+//---member
+router.get("/member/:UserId?", (req, res) => {
+  const query = {};
+  if (req.query.UserId) {
+    query.UserId = req.query.UserId;
+  }
+  db.Question.findAll({
+    where: { UserId: req.params.UserId },
+    include: [db.User, db.Answer]
+  }).then(data => {
+    const newQTData = data.map(d => {
+      const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+      const newAnswers = d.Answers.map(a => {
+        const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+        return {
+          id: a.id,
+          answerText: md.render(a.answerText),
+          answerTag: a.answerTag,
+          dateTime: newAnswerDT,
+          username: d.User.username
+        };
+      });
+
+      return {
+        id: d.id,
+        // questionText: d.questionText,
+        questionText: md.render(d.questionText),
+        questionTag: d.questionTag,
+        dateTime: newDT,
+        User: d.User,
+        username: d.User.username,
+        Answers: newAnswers
+      };
+    });
+    res.render("index", { questions: newQTData });
+  });
+});
+
 module.exports = router;
