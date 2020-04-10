@@ -34,7 +34,6 @@
                 </div>
               </div>
               <div class="control">
-                {{!-- <textarea id="questionText" class="textarea is-primary" placeholder="I need help with ..."></textarea> --}}
                 <textarea id="questionText"></textarea>
               </div>
               <br>
@@ -50,11 +49,14 @@
   <div class="allQuestion">
     <div class="card-content">
       <div class="media-content">
-        <div class="title">Recently Asked Questions</div>
+        {{#if questions.length}}       
+          <div class="title">Recently Asked Questions</div>
+          {{else}}
+          <div class="title">No Questions Yet.</div>
+        {{/if}}
         <br>
   
           {{#each questions}}
-          
             {{> questions/question_block}}
           {{/each}}
         
