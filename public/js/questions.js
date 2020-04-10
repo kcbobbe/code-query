@@ -3,6 +3,8 @@ $(document).ready(function() {
   //message from server
   socket.on("newPost", msg => {
     outputMessage(msg);
+    //Auto scroll down
+    $(".allQuestion").scrollTop = $(".allQuestion").scrollHeight;
   });
 
   let userId;

@@ -84,9 +84,6 @@ let io = socketIO(server);
 
 io.on("connection", socket => {
   console.log("New socket connection on console.....................");
-
-  socket.emit("msg", "-------Welcome from socket server! UI--------");
-
   socket.on("newPost", msg => {
     console.log(msg);
     io.emit("newPost", msg);
