@@ -42,6 +42,7 @@ router.post("/api/answers", (req, res) => {
     answerText: req.body.answerText,
     QuestionId: req.body.QuestionId,
     UserId: req.body.UserId
+    // AnswerUsername: req.body.answerUsername
   };
 
   db.Answer.create(newAnswer)
