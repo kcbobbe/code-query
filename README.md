@@ -9,6 +9,7 @@ As a novice coding bootcamp student
 I want to have access to a mentor community
 So that I can ask questions in a judgment-free space
 ```
+<img src="/public/assets/mentor-match.gif">
 
 ## Table of Content
 
@@ -61,9 +62,8 @@ If you have any questions about the repo, open an issue.
 
 <img src="https://avatars0.githubusercontent.com/u/56233744?v=4" width ="50px" height="50px">
 <img src="https://avatars0.githubusercontent.com/u/28842469?v=4" width ="50px" height="50px">
-<img src="" width ="50px" height="50px">
-<img src="" width ="50px" height="50px">
- add the other three avatars
+<img src="https://avatars0.githubusercontent.com/u/58493428?v=4" width ="50px" height="50px">
+<img src="https://avatars3.githubusercontent.com/u/38509741?v=4" width ="50px" height="50px">
 
 
 
