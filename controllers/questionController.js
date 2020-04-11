@@ -16,7 +16,15 @@ router.get("/", (req, res) => {
   //Finding all questions
   db.Question.findAll({
     where: query,
-    include: [db.User, db.Answer]
+    include: [
+      {
+        model: db.User
+      },
+      {
+        model: db.Answer,
+        include: [db.User]
+      }
+    ]
   }).then(data => {
     data.reverse();
     const newData = data.map(d => {
@@ -29,9 +37,9 @@ router.get("/", (req, res) => {
           answerText: md.render(a.answerText),
           answerTag: a.answerTag,
           dateTime: newAnswerDT,
-          // answerUsername: a.User.username,
-          username: d.User.username,
-          userId: d.User.id,
+          answerUsername: a.User.username,
+          // username: d.User.username,
+          answerUserId: a.User.id,
           questionId: d.id
         };
       });
@@ -99,7 +107,15 @@ router.get("/api/questions", (req, res) => {
   }
   db.Question.findAll({
     where: query,
-    include: [db.User, db.Answer]
+    include: [
+      {
+        model: db.User
+      },
+      {
+        model: db.Answer,
+        include: [db.User]
+      }
+    ]
   }).then(data => {
     const newData = data.map(d => {
       const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
@@ -111,7 +127,8 @@ router.get("/api/questions", (req, res) => {
           id: a.id,
           answerText: a.answerText,
           answerTag: a.answerTag,
-          dateTime: newAnswerDT
+          dateTime: newAnswerDT,
+          answerUsername: a.User.username
         };
       });
       //Mapping questions array with updated Answers and date
