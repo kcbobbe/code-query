@@ -11,13 +11,11 @@ $(document).ready(function() {
 
   $(".QTag").click(function(event) {
     const questionTag = event.target.id;
-    console.log(questionTag + "clicked");
     renderQuestionTagQuestions(questionTag);
   });
 
   function renderQuestionTagQuestions(questionTag) {
     const url = "/question/" + questionTag;
-    console.log(url);
     window.location.href = url;
   }
 });

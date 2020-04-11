@@ -7,15 +7,7 @@ var router = express.Router();
 
 db.User.sync();
 
-//-------route to handlebar files------
-
-//-----get routes----------
-
-// router.get("/", (req, res) => {
-//   db.User.findAll({ raw: true }).then(data => {
-//     res.render("index", { users: data });
-//   });
-// });
+//------------routes to handlebar files-------------
 
 router.get("/login", (req, res) => {
   //Coming to login page after signup or direct click on login
@@ -31,7 +23,7 @@ router.get("/members", isAuthenticated, (req, res) => {
   //Coming from isauth function after checking
   res.render("members");
 });
-// module.exports = function(app) {
+
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
@@ -96,34 +88,5 @@ router.get("/api/user_data", function(req, res) {
     });
   }
 });
-// -----------------------------------------HTML Routes------------------------------------------------
-
-// // Requiring path to so we can use relative routes to our HTML files
-// var path = require("path");
-
-// // Requiring our custom middleware for checking if a user is logged in
-// var isAuthenticated = require("../config/middleware/isAuthenticated");
-
-// router.get("/", function(req, res) {
-//   // If the user already has an account send them to the members page
-//   if (req.user) {
-//     res.redirect("/members");
-//   }
-//   res.sendFile(path.join(__dirname, "../public/signup.html"));
-// });
-
-// router.get("/login", function(req, res) {
-//   // If the user already has an account send them to the members page
-//   if (req.user) {
-//     res.redirect("/members");
-//   }
-//   res.sendFile(path.join(__dirname, "../public/login.html"));
-// });
-
-// // Here we've add our isAuthenticated middleware to this route.
-// // If a user who is not logged in tries to access this route they will be redirected to the signup page
-// router.get("/members", isAuthenticated, function(req, res) {
-//   res.sendFile(path.join(__dirname, "../public/members.html"));
-// });
 
 module.exports = router;
