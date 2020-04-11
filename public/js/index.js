@@ -73,7 +73,7 @@ $(document).ready(function() {
         // delete
         $(".delete-button").each(() => {
           let qid = $(this).attr("data-id");
-          $(this).on("click", () => {
+          $(".delete-button").on("click", () => {
             $.ajax(`/api/questions/${qid}`, {
               type: "DELETE"
             }).then(() => {
