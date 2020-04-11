@@ -18,6 +18,7 @@ router.get("/", (req, res) => {
     where: query,
     include: [db.User, db.Answer]
   }).then(data => {
+    data.reverse()
     const newData = data.map(d => {
       const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
       const newAnswers = d.Answers.map(a => {
