@@ -34,10 +34,14 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     User.hasMany(models.Question, {
-      onDelete: "cascade"
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+      constraints: true
     });
     User.hasMany(models.Answer, {
-      onDelete: "cascade"
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+      constraints: true
     });
   };
 
