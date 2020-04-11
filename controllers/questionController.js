@@ -193,6 +193,9 @@ router.delete("/api/questions/:id", (req, res) => {
     where: {
       id: req.params.id
     }
+    // where: {
+    //   userId: req.params.userId
+    // }
   })
     .then(function(data) {
       res.status(200).end();
