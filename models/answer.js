@@ -7,21 +7,8 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     }
-    // answerTag: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    //   validate: {
-    //     len: [1]
-    //   }
-    // }
-    // the created at date and the updated at date is provided from sequelize. Eventually we should convert to date using moment
-    // date: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   len: [1]
-    // }
   });
-
+  //Answer table has userId and questionId Foreignkeys
   Answer.associate = function(models) {
     Answer.belongsTo(models.Question, {
       foreignKey: {

@@ -10,48 +10,59 @@ I want to have access to a mentor community
 So that I can ask questions in a judgment-free space
 ```
 
-This is a ....
-
-The app was created with MySQL, Sequelize, Node, Express, Handlebars, Socket.io, passport... 
-
-Click here to see the heroku deployed application <a href="https://mentor-match1.herokuapp.com/">Mentor Match</a>.
-
-
 ## Table of Content
 
-*[Installation](#installation)
+-   [Description](#description)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Test](#test)
+-   [Deployed Link](#deployed)
+-   [Contribution](#contribution)
 
-*[Usage](#usage)
+## <a name="description"></a>Description:
 
-*[Contribution](#contribution)
+'Mentor-Match' is a question and answer app that lets users ask and asnwer questions ..... 
+This application is created with MySQL, Sequelize, Node, Express, Handlebars, Socket.io, Passport.
 
-## Installation
+## <a name="installation"></a>Installation
 
-To install the necessary dependencies, run the following command:
+Git pull and run the following command:
 
-`npm i`
+```bash
 
-## Usage
+    npm init
+    npm install
 
-Open the heroku deployed application link or install all dependencies and enter` node server.js` in your command line go to localhost:8085 to start the application. 
+```
 
+## <a name="usage"></a>Usage
+
+```bash
+    npm run start
+```
+
+## <a name="deployed"></a>Deployed Link:
+
+The heroku deployed link: <a href="https://mentor-match1.herokuapp.com/">Mentor Match</a>.
+
+## <a name="test"></a>Test:
+
+```bash
+    npm run jest
+```
 
 ## Contribution
 
-Not allowed.
-
----------------------------------------
-
-![](#)
-
----------------------------------------
-
+Pull requests are welcome. Code of Conduct: Standard (Fork, Clone, Commit, Push and Create Pull requests).
 
 ## Questions
 
 If you have any questions about the repo, open an issue.
 
-<img src="https://avatars0.githubusercontent.com/u/56233744?v=4" width ="150px" height="150px">
+<img src="https://avatars0.githubusercontent.com/u/56233744?v=4" width ="50px" height="50px">
+<img src="https://avatars0.githubusercontent.com/u/28842469?v=4" width ="50px" height="50px">
+<img src="" width ="50px" height="50px">
+<img src="" width ="50px" height="50px">
  add the other three avatars
 
 

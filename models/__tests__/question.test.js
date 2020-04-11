@@ -3,7 +3,7 @@ jest.mock("../question");
 test("mock question model", () => {
   expect(question).toEqual({
     questionText: "What is the question?",
-    questionTag: "javascript",
-    date: "01/01/2020"
+    questionTag: "JavaScript",
+    date: "04/10/2020 12:30:12PM"
   });
 });
