@@ -86,7 +86,7 @@ router.get("/question/:questionTag?", (req, res) => {
         Answers: newAnswers
       };
     });
-    res.render("index", { questions: newQTData });
+    res.render("tags", { questions: newQTData });
   });
 });
 
@@ -313,7 +313,7 @@ router.get("/member/:UserId?", (req, res) => {
         Answers: newAnswers
       };
     });
-    res.render("index", { questions: newQTData });
+    res.render("profile", { questions: newQTData });
   });
 });
 
