@@ -44,6 +44,17 @@ body{
 
 }
 
+pre{
+  box-shadow: inset 0px 0px 3px #c1c1c1;
+  background-color: white;
+  /* border: 1px solid gray; */
+
+}
+
+/* .delete-button {
+  float: right;
+} */
+
 .ask{
   background-color: whitesmoke!important;
 }

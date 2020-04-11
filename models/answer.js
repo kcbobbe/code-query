@@ -1,7 +1,8 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize) {
+  var Sequelize = require("sequelize");
   var Answer = sequelize.define("Answer", {
     answerText: {
-      type: DataTypes.TEXT,
+      type: Sequelize.TEXT,
       allowNull: false,
       validate: {
         len: [1]

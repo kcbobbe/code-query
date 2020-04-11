@@ -8,10 +8,23 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
+// config.details.operatorsAliases = {
+//   $and: Sequelize.Op.and,
+//   $or: Sequelize.Op.or,
+//   $eq: Sequelize.Op.eq,
+//   $gt: Sequelize.Op.gt,
+//   $lt: Sequelize.Op.lt,
+//   $lte: Sequelize.Op.lte,
+//   $like: Sequelize.Op.like
+// };
+
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+  var sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: 'localhost',
+    dialect: 'mysql'
+  });
 }
 
 fs

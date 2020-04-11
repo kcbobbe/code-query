@@ -19,6 +19,7 @@ $(document).ready(function() {
       //Get userID of current user
       const CurrentUser = req.id;
       renderMemberQuestion(CurrentUser);
+      $("#askQuestion").css("display", "none");
     });
     $(".userUsername").on("click", event => {
       event.preventDefault();
@@ -27,11 +28,11 @@ $(document).ready(function() {
         .attr("data-user");
       // console.log(userId)
       renderMemberQuestion(userId);
+      $("#askQuestion").css("display", "none");
     });
     function renderMemberQuestion(UserId) {
       const url = "/member/" + UserId;
       window.location.href = url;
-      $("#askQuestion").css("display", "none");
     }
 
     // adding delete button functionality

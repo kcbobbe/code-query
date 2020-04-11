@@ -2,22 +2,23 @@
 
 ![Github license](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Description
-
-```
-As a novice coding bootcamp student
-I want to have access to a mentor community
-So that I can ask questions in a judgment-free space
-```
-
 ## Table of Content
 
+-   [User Story](#userstory)
 -   [Description](#description)
 -   [Installation](#installation)
 -   [Usage](#usage)
 -   [Test](#test)
 -   [Deployed Link](#deployed)
 -   [Contribution](#contribution)
+
+## User Story
+
+```
+As a novice coding bootcamp student
+I want to have access to a mentor community
+So that I can ask questions in a judgment-free space
+```
 
 ## <a name="description"></a>Description:
 
@@ -29,11 +30,10 @@ This application is created with MySQL, Sequelize, Node, Express, Handlebars, So
 Git pull and run the following command:
 
 ```bash
-
-    npm init
+    
     npm install
 
-```
+``` 
 
 ## <a name="usage"></a>Usage
 
@@ -45,11 +45,15 @@ Git pull and run the following command:
 
 The heroku deployed link: <a href="https://mentor-match1.herokuapp.com/">Mentor Match</a>.
 
+
+![Screenshot](/public/assets/images/mentor-match.gif "test-screen")
+
 ## <a name="test"></a>Test:
 
 ```bash
     npm run jest
 ```
+![Screenshot](/public/assets/images/testScreen.png "test-screen")
 
 ## Contribution
 
@@ -61,9 +65,8 @@ If you have any questions about the repo, open an issue.
 
 <img src="https://avatars0.githubusercontent.com/u/56233744?v=4" width ="50px" height="50px">
 <img src="https://avatars0.githubusercontent.com/u/28842469?v=4" width ="50px" height="50px">
-<img src="" width ="50px" height="50px">
-<img src="" width ="50px" height="50px">
- add the other three avatars
+<img src="https://avatars0.githubusercontent.com/u/58493428?v=4" width ="50px" height="50px">
+<img src="https://avatars3.githubusercontent.com/u/38509741?v=4" width ="50px" height="50px">
 
 
 
