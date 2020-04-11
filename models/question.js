@@ -14,14 +14,8 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     }
-    // the created at date and the updated at date is provided from sequelize. Eventually we should convert to date using moment
-    // date: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   len: [1]
-    // }
   });
-
+  //Question table has userId as a Foreignkey and has one to many relationship with Answer
   Question.associate = function(models) {
     Question.hasMany(models.Answer, {
       onDelete: "CASCADE",

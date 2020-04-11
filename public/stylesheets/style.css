@@ -7,22 +7,49 @@ form.login {
   background-color: black!important;
 }
 
+.navbar-burger,
+.navbar-title{
+  color: white!important;
+
+}
+
+.navbar-link{
+  color: white!important;
+}
+
+a:hover{
+  background-color: #008571!important;
+  color: white!important;
+}
+
 .hide{
   display:none;
 }
 
 body{
-  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Anonymous Pro', monospace; */
+  /* font-family: 'Raleway', sans-serif; */
   /* background-color: #F4FDFB; */
 }
 
 .card {
-  background-color: white;
+  font-family: 'Anonymous Pro', monospace;
+  /* background-color: #e3f5f0!important; */
+  background-color: whitesmoke!important;
   padding: 20px!important;
   margin-bottom: 20px;
   color: #000!important;
-  background-color: #fff!important;
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  border: 1px solid #008571;
+
+}
+
+.ask{
+  background-color: whitesmoke!important;
+}
+
+.editor-toolbar{
+  /* background-color: #e3f5f0; */
 }
 
 .member-name{
@@ -53,8 +80,11 @@ body{
 
 .hero-body{
   background-color: whitesmoke;
-  border-bottom: 1px solid #00D1B2;
+  /* background-color: #e3f5f0; */
+  border: 1px solid #008571;
+  /* #00D1B2; */
   font-size: 1.2em;
+  /* margin:20px; */
   /* box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19); */
 
 
@@ -64,7 +94,45 @@ a{
   color: #008571;
 }
 
+.navbar-item:hover,
+{
+  background-color: #008571!important;
+}
+
 #alert {
   color: red;
   font-weight: bold;
+}
+
+button,
+.button{
+  font-family: 'Anonymous Pro', monospace;
+  font-weight: bold;
+  background-color: #008571;
+  color: white;
+  
+}
+
+#signupButton,
+#loginButton{
+  font-family: 'Raleway', sans-serif;
+}
+
+#signupButton:hover,
+#loginButton:hover{
+  background-color: #e3f5f0!important;
+  color: black!important;
+}
+
+select,
+.control{
+  border-color:#008571!important;
+}
+
+.hide {
+  display: none;
+}
+
+.activeUser a {
+  color: palevioletred!important;
 }

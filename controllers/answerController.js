@@ -3,14 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 db.Answer.sync();
-
-// router.get("/", (req, res) => {
-//   db.Answer.findAll().then(data => {
-//     console.log(data);
-//     res.render("index", { answers: data });
-//   });
-// });
-
+//Api routes for CRUD operations-------------------------
 router.get("/api/answers", (req, res) => {
   const query = {};
   if (req.query.QuestionId) {
@@ -47,10 +40,8 @@ router.get("/api/answers/:id?", (req, res) => {
 router.post("/api/answers", (req, res) => {
   const newAnswer = {
     answerText: req.body.answerText,
-    // answerTag: req.body.answerTag,
     QuestionId: req.body.QuestionId,
     UserId: req.body.UserId
-    // date: req.body.date
   };
 
   db.Answer.create(newAnswer)
@@ -67,7 +58,6 @@ router.post("/api/answers", (req, res) => {
 router.put("/api/answers/:id", (req, res) => {
   const updAnswer = {
     answerText: req.body.answerText,
-    // answerTag: req.body.answerTag,
     date: req.body.date
   };
   db.Answer.update(updAnswer, {

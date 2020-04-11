@@ -18,6 +18,7 @@ router.get("/", (req, res) => {
     where: query,
     include: [db.User, db.Answer]
   }).then(data => {
+    data.reverse();
     const newData = data.map(d => {
       const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
       const newAnswers = d.Answers.map(a => {
@@ -28,7 +29,9 @@ router.get("/", (req, res) => {
           answerText: md.render(a.answerText),
           answerTag: a.answerTag,
           dateTime: newAnswerDT,
+          // answerUsername: a.User.username,
           username: d.User.username,
+          userId: d.User.id,
           questionId: d.id
         };
       });
@@ -40,6 +43,7 @@ router.get("/", (req, res) => {
         dateTime: newDT,
         User: d.User,
         username: d.User.username,
+        userId: d.User.id,
         Answers: newAnswers
       };
     });
@@ -59,10 +63,10 @@ router.get("/question/:questionTag?", (req, res) => {
   }).then(data => {
     const newQTData = data.map(d => {
       const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
-
+      //mapping Answers array with updated date
       const newAnswers = d.Answers.map(a => {
         const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
-
+        //Mapping questions array with updated Answers and date
         return {
           id: a.id,
           answerText: md.render(a.answerText),
@@ -74,7 +78,6 @@ router.get("/question/:questionTag?", (req, res) => {
 
       return {
         id: d.id,
-        // questionText: d.questionText,
         questionText: md.render(d.questionText),
         questionTag: d.questionTag,
         dateTime: newDT,
@@ -87,7 +90,7 @@ router.get("/question/:questionTag?", (req, res) => {
   });
 });
 
-//-----------------------------API routes----------------------------
+//-----------------------------API routes for CRUD operations----------------------------
 
 router.get("/api/questions", (req, res) => {
   const query = {};
@@ -103,7 +106,7 @@ router.get("/api/questions", (req, res) => {
 
       const newAnswers = d.Answers.map(a => {
         const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
-
+        //Mapping answers array with updated date
         return {
           id: a.id,
           answerText: a.answerText,
@@ -111,7 +114,7 @@ router.get("/api/questions", (req, res) => {
           dateTime: newAnswerDT
         };
       });
-
+      //Mapping questions array with updated Answers and date
       return {
         id: d.id,
         questionText: d.questionText,
@@ -275,6 +278,45 @@ router.get("/api/question/:questionTag?", (req, res) => {
       };
     });
     res.json(newData);
+  });
+});
+
+//---member
+router.get("/member/:UserId?", (req, res) => {
+  const query = {};
+  if (req.query.UserId) {
+    query.UserId = req.query.UserId;
+  }
+  db.Question.findAll({
+    where: { UserId: req.params.UserId },
+    include: [db.User, db.Answer]
+  }).then(data => {
+    const newQTData = data.map(d => {
+      const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+      const newAnswers = d.Answers.map(a => {
+        const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
+
+        return {
+          id: a.id,
+          answerText: md.render(a.answerText),
+          answerTag: a.answerTag,
+          dateTime: newAnswerDT,
+          username: d.User.username
+        };
+      });
+
+      return {
+        id: d.id,
+        questionText: md.render(d.questionText),
+        questionTag: d.questionTag,
+        dateTime: newDT,
+        User: d.User,
+        username: d.User.username,
+        Answers: newAnswers
+      };
+    });
+    res.render("index", { questions: newQTData });
   });
 });
 

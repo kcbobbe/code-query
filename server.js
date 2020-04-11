@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 // Requiring necessary npm packages
 const path = require("path");
 const express = require("express");
@@ -12,28 +12,17 @@ const socketIO = require("socket.io");
 //github oauth
 // var GitHubStrategy = require("passport-github").Strategy;
 
-// Configure the Github strategy for use by Passport.
-//
-// OAuth 2.0-based strategies require a `verify` function which receives the
-// credential (`accessToken`) for accessing the Github API on the user's
-// behalf, along with the user's profile.  The function must invoke `cb`
-// with a user object, which will be set at `req.user` in route handlers after
-// authentication.
 // passport.use(
 //   new GitHubStrategy(
 //     {
 //       clientID: process.env.GITHUB_CLIENT_ID,
 //       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-//       callbackURL: "/return"
+//       callbackURL: "/"
 //     },
 //     function(accessToken, refreshToken, profile, cb) {
-// In this example, the user's Facebook profile is supplied as the user
-// record.  In a production-quality application, the Facebook profile should
-// be associated with a user record in the application's database, which
-// allows for account linking and authentication with other identity
-// providers.
-// User.findOrCreate({ githubId: profile.id }, function (err, user) {
-//       return cb(null, profile);
+//       User.findOrCreate({ githubId: profile.id }, function(err, user) {
+//         return cb(err, user);
+//       });
 //     }
 //   )
 // );
@@ -83,12 +72,8 @@ app.use(routes, qRoutes, aRoutes);
 let io = socketIO(server);
 
 io.on("connection", socket => {
-  console.log("New socket connection on console.....................");
-
-  socket.emit("msg", "-------Welcome from socket server! UI--------");
-
   socket.on("newPost", msg => {
-    console.log(msg);
+    //broadcast the new question/answer to all the connected users
     io.emit("newPost", msg);
   });
 });
