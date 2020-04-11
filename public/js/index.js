@@ -19,7 +19,7 @@ $(document).ready(function() {
       //Get userID of current user
       const CurrentUser = req.id;
       renderMemberQuestion(CurrentUser);
-      $("#askQuestion").css("display", "none");
+      $("#askQuestion").addClass("hide");
     });
     $(".userUsername").on("click", event => {
       event.preventDefault();
@@ -28,7 +28,7 @@ $(document).ready(function() {
         .attr("data-user");
       // console.log(userId)
       renderMemberQuestion(userId);
-      $("#askQuestion").css("display", "none");
+      $("#askQuestion").addClass("hide");
     });
     function renderMemberQuestion(UserId) {
       const url = "/member/" + UserId;
