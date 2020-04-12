@@ -23,6 +23,8 @@ $(document).ready(function() {
   //   console.log("this is the element", $(element));
   // }
 
+  $(".answerText").empty();
+
   $(".answerText").each(function() {
     var simplemde = new SimpleMDE({
       element: this

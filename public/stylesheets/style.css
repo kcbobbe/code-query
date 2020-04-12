@@ -48,16 +48,12 @@ body{
 
 }
 
-/* .delete-button {
-  float: right;
-} */
+.delete-button {
+  background-color: rgb(235, 76, 100)!important;
+}
 
 .ask{
   background-color: whitesmoke!important;
-}
-
-.editor-toolbar{
-  /* background-color: #e3f5f0; */
 }
 
 .member-name{
