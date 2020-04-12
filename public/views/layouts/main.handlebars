@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-dark" id ="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item navbar-title" href="/">
           <i class="fas fa-code" style="margin-right: .25em" aria-hidden="true"></i>
@@ -84,7 +84,7 @@
               </a>
             </div>
           </div>
-          <div class="navbar-item">
+          {{!-- <div class="navbar-item">
             {{!-- <form id="search-form">
               <div class="field has-addons">
               <div class="control">
@@ -98,8 +98,8 @@
                 </button>
               </div>
             </div>
-          </form> --}}
-        </div>
+          </form> 
+        </div> --}}
 
         </div>
       </div>
@@ -118,8 +118,10 @@
   <script type="text/javascript" src="/js/questions.js"></script>
   <script type="text/javascript" src="/js/answers.js"></script>
   <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/stickynavbar.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jdenticon@2.2.0" async></script>
+
 
 </body>
 

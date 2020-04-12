@@ -56,7 +56,7 @@ $(document).ready(function() {
   }
   //Validating the user name consists of letters and not only numbers
   function validateUser(userName) {
-    var regPassword = /^[a-z][-a-zA-Z0-9$@$#!%*?&]*$/;
+    var regPassword = /^[a-zA-Z][-a-zA-Z0-9$@$_#!%*?&]*$/;
     if (!regPassword.test(userName)) {
       return false;
     } else {

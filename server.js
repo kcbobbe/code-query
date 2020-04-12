@@ -16,13 +16,13 @@ var GitHubStrategy = require("passport-github").Strategy;
 passport.use(
   new GitHubStrategy(
     {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "/"
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: "/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
-      User.findOrCreate({ githubId: profile.id }, function(err, user) {
-        return cb(err, user);
+      User.findOrCreate({ username: profile.id }, function(err, profile) {
+        return cb(err, profile);
       });
     }
   )
@@ -36,10 +36,6 @@ var db = require("./models");
 var app = express();
 //Creating new server to integrate with socket.io
 let server = http.createServer(app);
-
-// add avatars
-// app.use('/myAvatars', avatarsMiddleware);
-// app.use('/api/myAvatars', avatarsMiddleware);
 
 //---------
 app.use(express.urlencoded({ extended: true }));
