@@ -45,15 +45,21 @@ $(document).ready(function() {
       }
     });
     //For each question checking to see if the question belongs to current user then rendering 'Delete' button
-    $(".question").each(function() {
+    $(".profile-page .question").each(function() {
       if (parseInt($(this).data("user")) === parseInt(req.id)) {
         let questionId = $(this).data("id");
-        let newDeleteButton = $("<a>");
-        newDeleteButton.text("Delete");
-        newDeleteButton.addClass("delete-button button is-danger");
-        newDeleteButton.attr("data-id", questionId);
+        let newDeleteButton = $("<div>");
+        newDeleteButton.html(`
+        <div class="media-right">
+          <button class="delete delete-button is-danger" data-id=${questionId}></button>
+        </div>
+        `)
+        // newDeleteButton.addClass("delete-button button is-danger");
+        // newDeleteButton.attr("data-id", questionId);
         //Adding delete button in the card and calling AJAX delete if pressed
+        // $(`${this} > .media-right`).append(newDeleteButton);
         $(this).append(newDeleteButton);
+
 
         $(".delete-button").each(() => {
           let qid = $(this).attr("data-id");
