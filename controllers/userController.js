@@ -35,6 +35,7 @@ router.post("/api/login", passport.authenticate("local"), function(req, res) {
   res.json({
     username: req.user.username,
     id: req.user.id
+    // avatar: req.user.avatar
   });
 });
 
@@ -45,6 +46,8 @@ router.post("/api/signup", function(req, res) {
   db.User.create({
     username: req.body.username,
     password: req.body.password
+
+    // avatar: "/myAvatars/" + User.id
   })
     .then(function() {
       res.redirect(307, "/api/login");
@@ -54,7 +57,7 @@ router.post("/api/signup", function(req, res) {
     });
 });
 
-//-------------------passport-github part--comment back in once page is registered with github------------------
+//-------------------passport-github part------------------------
 
 // route middleware for github login
 router.get("/auth/github", passport.authenticate("github"));
@@ -67,12 +70,30 @@ router.get(
     res.redirect("/");
   }
 );
+//--------------------------------------
 
 // Route for logging user out
 router.get("/logout", function(req, res) {
   req.logout();
   res.redirect("/");
 });
+
+// axios.get('https://api.adorable.io/avatars/160/abott@adorable.png')
+//   .then(result => {
+//     // console.log(result);
+//     let sql = "";
+//     result.data.forEach(user => {
+//       sql += `insert into User (avatar) values (https://api.adorable.io/avatars/160/abott@adorable.png);\n\n`;
+//     });
+
+//     fs.writeFile("seeds.sql", sql, (err) => {
+//       if(err) console.log(err);
+//       console.log("Seeds file created.");
+//     });
+
+//   }).catch(err => {
+//     console.log(err);
+//   });
 
 // Route for getting some data about our user to be used client side
 router.get("/api/user_data", function(req, res) {
@@ -84,6 +105,7 @@ router.get("/api/user_data", function(req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       username: req.user.username,
+      // avatar: req.user.avatar,
       id: req.user.id
     });
   }

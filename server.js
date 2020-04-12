@@ -2,6 +2,7 @@ require("dotenv").config();
 // Requiring necessary npm packages
 const path = require("path");
 const express = require("express");
+// const avatarsMiddleware = require('adorable-avatars');
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const http = require("http");
@@ -36,6 +37,11 @@ var app = express();
 //Creating new server to integrate with socket.io
 let server = http.createServer(app);
 
+// add avatars
+// app.use('/myAvatars', avatarsMiddleware);
+// app.use('/api/myAvatars', avatarsMiddleware);
+
+//---------
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
