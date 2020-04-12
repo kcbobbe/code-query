@@ -15,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "adorable-avatars": "^0.4.1",
     "bcryptjs": "2.4.3",
     "codemirror": "^5.52.2",
     "dotenv": "^8.2.0",

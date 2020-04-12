@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="allQuestion">
+    <div class="card-content">
+      <div class="media-content">
+        {{#if questions.length}}       
+          <div class="title is-6">Member Questions</div>
+          {{else}}
+          <div class="title is-6">No Questions Yet.</div>
+        {{/if}}
+          {{#each questions}}
+            {{> questions/question_block}}
+          {{/each}}
+        
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -67,7 +67,15 @@ router.get("/question/:questionTag?", (req, res) => {
   }
   db.Question.findAll({
     where: { questionTag: req.params.questionTag },
-    include: [db.User, db.Answer]
+    include: [
+      {
+        model: db.User
+      },
+      {
+        model: db.Answer,
+        include: [db.User]
+      }
+    ]
   }).then(data => {
     const newQTData = data.map(d => {
       const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
@@ -80,7 +88,9 @@ router.get("/question/:questionTag?", (req, res) => {
           answerText: md.render(a.answerText),
           answerTag: a.answerTag,
           dateTime: newAnswerDT,
-          username: d.User.username
+          answerUsername: a.User.username,
+          answerUserId: a.User.id,
+          questionId: d.id
         };
       });
 
@@ -91,10 +101,11 @@ router.get("/question/:questionTag?", (req, res) => {
         dateTime: newDT,
         User: d.User,
         username: d.User.username,
+        userId: d.User.id,
         Answers: newAnswers
       };
     });
-    res.render("index", { questions: newQTData });
+    res.render("tags", { questions: newQTData });
   });
 });
 
@@ -245,7 +256,8 @@ router.get("/api/question", (req, res) => {
           id: a.id,
           answerText: a.answerText,
           answerTag: a.answerTag,
-          dateTime: newAnswerDT
+          dateTime: newAnswerDT,
+          answerUsername: a.User.username
         };
       });
 
@@ -268,12 +280,19 @@ router.get("/api/question/:questionTag?", (req, res) => {
     query.questionTag = req.query.questionTag;
   }
   db.Question.findAll({
-    where: { questionTag: req.params.questionTag },
-    include: [db.User, db.Answer]
+    where: query,
+    include: [
+      {
+        model: db.User
+      },
+      {
+        model: db.Answer,
+        include: [db.User]
+      }
+    ]
   }).then(data => {
     const newData = data.map(d => {
       const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
-
       const newAnswers = d.Answers.map(a => {
         const newAnswerDT = moment(a.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
 
@@ -281,7 +300,9 @@ router.get("/api/question/:questionTag?", (req, res) => {
           id: a.id,
           answerText: a.answerText,
           answerTag: a.answerTag,
-          dateTime: newAnswerDT
+          dateTime: newAnswerDT,
+          answerUserId: a.User.id,
+          answerUsername: a.User.username
         };
       });
 
@@ -291,6 +312,8 @@ router.get("/api/question/:questionTag?", (req, res) => {
         questionTag: d.questionTag,
         dateTime: newDT,
         User: d.User,
+        username: d.User.username,
+        userId: d.User.id,
         Answers: newAnswers
       };
     });
@@ -306,7 +329,15 @@ router.get("/member/:UserId?", (req, res) => {
   }
   db.Question.findAll({
     where: { UserId: req.params.UserId },
-    include: [db.User, db.Answer]
+    include: [
+      {
+        model: db.User
+      },
+      {
+        model: db.Answer,
+        include: [db.User]
+      }
+    ]
   }).then(data => {
     const newQTData = data.map(d => {
       const newDT = moment(d.updatedAt).format("MM/DD/YYYY hh:mm:ssA");
@@ -319,7 +350,9 @@ router.get("/member/:UserId?", (req, res) => {
           answerText: md.render(a.answerText),
           answerTag: a.answerTag,
           dateTime: newAnswerDT,
-          username: d.User.username
+          answerUsername: a.User.username,
+          answerUserId: a.User.id,
+          questionId: d.id
         };
       });
 
@@ -330,10 +363,11 @@ router.get("/member/:UserId?", (req, res) => {
         dateTime: newDT,
         User: d.User,
         username: d.User.username,
+        userId: d.User.id,
         Answers: newAnswers
       };
     });
-    res.render("index", { questions: newQTData });
+    res.render("profile", { questions: newQTData });
   });
 });
 

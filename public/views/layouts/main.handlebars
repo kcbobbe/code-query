@@ -12,15 +12,15 @@
         <link href="/stylesheets/style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
        
-    <title>Mentor Match</title>
+    <title>Code Query</title>
   </head>
 
   <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item navbar-title" href="/">
-          <i class="fa fa-users fa-fw" style="margin-right: .25em" aria-hidden="true"></i>
-          <h1 id="navTitle"><strong> Mentor Match </strong></h1>
+          <i class="fas fa-code" style="margin-right: .25em" aria-hidden="true"></i>
+          <h1 id="navTitle"><strong> Code Query </strong></h1>
         </a>
     
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -34,9 +34,7 @@
         <div class="navbar-start">
          
 {{!-- add links so new partial appears in body when clicked          --}}
-          {{!-- <a class="navbar-item" href="#">
-            Questions
-          </a> --}}
+         
     
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
@@ -45,29 +43,34 @@
     
             <div class="navbar-dropdown">
               <a class="navbar-item QTag" id="HTML">
-                <i class="fa fa-html5 fa-fw"></i>HTML 
+                <i class="fa fa-html5 fa-fw category-icon"></i>HTML 
               </a>
               <a class="navbar-item QTag" id="CSS">
-                <i class="fa fa-css3 fa-fw"></i>CSS
+                <i class="fa fa-css3 fa-fw category-icon"></i>CSS
               </a>
               <a class="navbar-item QTag" id="JavaScript">
-                <i class="fab fa-js-square fa-fw"></i>JavaScript
+                <i class="fab fa-js-square fa-fw category-icon"></i>JavaScript
               </a>
               <a class="navbar-item QTag" id="Node">
-                <i class="fab fa-node-js fa-fw"></i>Node
+                <i class="fab fa-node-js fa-fw category-icon"></i>Node
               </a>
               <a class="navbar-item QTag" id="Databases">
-                <i class="fa fa-database fa-fw"></i>Databases
+                <i class="fa fa-database fa-fw category-icon"></i>Databases
               </a>
-              <hr4>
-              <a class="navbar-item memberSection">
+               <a class="navbar-item QTag" id="Other">
+                <i class="fas fa-ellipsis-h category-icon"></i>Other
+              </a>
+              {{!-- <a class="navbar-item memberSection">
                 Go To Member Section
-              </a>
+              </a> --}}
             </div>
           </div>
         </div>
     
         <div class="navbar-end">
+           <a class="navbar-item hide yourProfile memberSection" href="#">
+            Your Profile
+          </a>
           <div class="navbar-item">
             <div class="buttons">
               <a id="signupButton" class="button hide" href="/signup">

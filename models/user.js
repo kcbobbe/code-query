@@ -6,12 +6,6 @@ module.exports = function(sequelize) {
   var Sequelize = require("sequelize");
   var User = sequelize.define("User", {
     // The username cannot be null, and must be a proper username before creation
-    // avatar: {
-    //   type: Sequelize.STRING,
-    //   unique: true
-    //   // for each user id attach one form /myAvatars/i
-    //   }
-    // },
     username: {
       type: Sequelize.STRING,
       allowNull: false,
