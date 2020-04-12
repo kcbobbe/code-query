@@ -53,13 +53,12 @@ $(document).ready(function() {
         <div class="media-right">
           <button class="delete delete-button is-danger" data-id=${questionId}></button>
         </div>
-        `)
+        `);
         // newDeleteButton.addClass("delete-button button is-danger");
         // newDeleteButton.attr("data-id", questionId);
         //Adding delete button in the card and calling AJAX delete if pressed
         // $(`${this} > .media-right`).append(newDeleteButton);
         $(this).append(newDeleteButton);
-
 
         $(".delete-button").each(() => {
           let qid = $(this).attr("data-id");

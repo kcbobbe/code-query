@@ -25,7 +25,6 @@ $(document).ready(function() {
 
   $(".answerText").empty();
 
-
   $(".answerText").each(function() {
     var simplemde = new SimpleMDE({
       element: this
