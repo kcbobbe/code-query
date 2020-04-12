@@ -23,9 +23,14 @@ $(document).ready(function() {
   //   console.log("this is the element", $(element));
   // }
 
+  $(".answerText").empty();
+
   $(".answerText").each(function() {
     var simplemde = new SimpleMDE({
-      element: this
+      element: this,
+      placeholder: "Type markdown here...",
+      showIcons: ["code", "table"],
+      hideIcons: ["side-by-side"]
     });
     simplemde.render();
   });

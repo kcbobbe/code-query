@@ -1,12 +1,12 @@
 <article class="media">
     <figure class="media-left">
         <p class="image is-48x48">
-        <img src= {{ avatar }}>
+        <svg width="48" height="48" data-jdenticon-value = {{ answerUsername }}></svg>
         </p>
     </figure>
     <div class="media-content">
         <div class="content">
-        <p>
+        <p> 
             {{!-- Displaying answer contents --}}
             <em><span class="userUsername" data-user={{answerUserId}}><a>{{answerUsername}}</a></span></em> Posted on {{dateTime}}
             <br><span class="postedText"> {{{answerText}}} </span>
