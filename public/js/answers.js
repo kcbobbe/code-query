@@ -39,6 +39,7 @@ $(document).ready(function() {
         .trim(),
       QuestionId: questionId,
       UserId: userId
+      // AnswerUsername: answerUsername
     };
 
     $.ajax("/api/answers", {

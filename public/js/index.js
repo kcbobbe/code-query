@@ -1,13 +1,16 @@
 $(document).ready(function() {
   $.get("/api/user_data", function(req) {
     if (req.id) {
-      // The user is not logged in, send back an empty object
+      $(".welcome-hero").addClass("hide");
+      $(".yourProfile").removeClass("hide");
       $("#logoutButton").removeClass("hide");
       $("#loginButton").addClass("hide");
       $("#signupButton").addClass("hide");
       $("#askQuestion").removeClass("hide");
       $(".replyButton").removeClass("hide");
     } else {
+      $(".welcome-hero").removeClass("hide");
+      $("#yourProfile").addClass("hide");
       $("#logoutButton").addClass("hide");
       $("#loginButton").removeClass("hide");
       $("#signupButton").removeClass("hide");
@@ -19,7 +22,7 @@ $(document).ready(function() {
       //Get userID of current user
       const CurrentUser = req.id;
       renderMemberQuestion(CurrentUser);
-      $("#askQuestion").css("display", "none");
+      $("#askQuestion").addClass("hide");
     });
     $(".userUsername").on("click", event => {
       event.preventDefault();
@@ -28,7 +31,7 @@ $(document).ready(function() {
         .attr("data-user");
       // console.log(userId)
       renderMemberQuestion(userId);
-      $("#askQuestion").css("display", "none");
+      $("#askQuestion").addClass("hide");
     });
     function renderMemberQuestion(UserId) {
       const url = "/member/" + UserId;
