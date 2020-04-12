@@ -13,18 +13,15 @@ const socketIO = require("socket.io");
 //github oauth
 var GitHubStrategy = require("passport-github").Strategy;
 
-const GITHUB_CLIENT_ID = "1314ba37fb5e417630d1";
-const GITHUB_CLIENT_SECRET= "f9d6bc6502989c83fc1c726ef0b73812f54e3a7a";
-
 passport.use(
   new GitHubStrategy(
     {
-      clientID: GITHUB_CLIENT_ID,
-      clientSecret: GITHUB_CLIENT_SECRET,
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: "/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
-      User.findOrCreate({ username: profile.id }, function(err, user) {
+      User.findOrCreate({ username: profile.id }, function(err, profile) {
         return cb(err, profile);
       });
     }

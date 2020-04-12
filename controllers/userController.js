@@ -57,7 +57,10 @@ router.post("/api/signup", function(req, res) {
 //-------------------passport-github part------------------------
 
 // route middleware for github login
-router.get("https://github.com/login/oauth/authorize", passport.authenticate("github"));
+router.get(
+  "https://github.com/login/oauth/authorize",
+  passport.authenticate("github")
+);
 
 router.get(
   "https://github.com/login/oauth/authorize",
