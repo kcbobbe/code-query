@@ -1,27 +1,30 @@
-<section class="hero">
+<section class="hero is-medium welcome-hero hide">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        Mentor Match | Q & A
-      </h1>
-      <h2 class="subtitle">
-        Beginner Web Developers Asking Questions in a Friendly Environment
-      </h2>
-      <h2>Welcome <span class="member-name">Guest</span></h2>
+      <h4 class="title is-4">
+        <i class="fas fa-code"></i>
+        Code Query
+      </h4>
+      <div>A place for <strong>web development beginners</strong> to ask questions and help peers in a friendly environment</div>
+      <p><a href="/login"><strong>Login</strong></a> or <a href="/signup"><strong>sign up</strong></a> to start asking and answering code questions!</p>
+      {{!-- <h2>Welcome <span class="member-name">Guest</span></h2> --}}
     </div>
   </div>
 </section>
+
 
 <div class="container">
 
   <div id="askQuestion" class="askQuestion hide">
     <div class="card-content">
       <div class="media-content">
-        <div class="title"> Ask Your Question:</div>
         <br>
         <div class="card ask">
+          <div class="title raleway"> Ask Your Question:</div>
           <form id="questionForm">
+            
             <div class="field">
+              <label class="label raleway" style="margin-left:.75em">Question Category</label>
               <div class="control">
                 <div class="select ">
                   <select id='questionTag'>
@@ -30,15 +33,20 @@
                     <option>JavaScript</option>
                     <option>Node</option>
                     <option>Databases</option>
+                    <option>Other</option>
                   </select>
                 </div>
               </div>
+            </div>
+            <div class="field">
               <div class="control">
                 <textarea id="questionText"></textarea>
               </div>
-              <br>
-              <button type="submit" class="button ">Submit<i class="fa fa-paper-plane fa-fw"></i></button>
-              <br>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button type="submit" class="button ">Submit<i class="fa fa-paper-plane fa-fw"></i></button>
+              </div>
             </div>
           </form>
         </div>
@@ -50,12 +58,10 @@
     <div class="card-content">
       <div class="media-content">
         {{#if questions.length}}       
-          <div class="title">Recently Asked Questions</div>
+          <div class="title is-6">Recently Asked Questions</div>
           {{else}}
-          <div class="title">No Questions Yet.</div>
+          <div class="title is-6">No Questions Yet.</div>
         {{/if}}
-        <br>
-  
           {{#each questions}}
             {{> questions/question_block}}
           {{/each}}
