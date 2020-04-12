@@ -57,11 +57,11 @@ router.post("/api/signup", function(req, res) {
 //-------------------passport-github part------------------------
 
 // route middleware for github login
-router.get("/auth/github", passport.authenticate("github"));
+router.get("https://github.com/login/oauth/authorize", passport.authenticate("github"));
 
 router.get(
-  "/auth/github/callback",
-  passport.authenticate("github", { failureRedirect: "/login" }),
+  "https://github.com/login/oauth/authorize",
+  passport.authenticate("github", { failureRedirect: "/signup" }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect("/");

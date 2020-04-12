@@ -13,16 +13,19 @@ const socketIO = require("socket.io");
 //github oauth
 var GitHubStrategy = require("passport-github").Strategy;
 
+const GITHUB_CLIENT_ID = "1314ba37fb5e417630d1";
+const GITHUB_CLIENT_SECRET= "f9d6bc6502989c83fc1c726ef0b73812f54e3a7a";
+
 passport.use(
   new GitHubStrategy(
     {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "/"
+      clientID: GITHUB_CLIENT_ID,
+      clientSecret: GITHUB_CLIENT_SECRET,
+      callbackURL: "/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
-      User.findOrCreate({ githubId: profile.id }, function(err, user) {
-        return cb(err, user);
+      User.findOrCreate({ username: profile.id }, function(err, user) {
+        return cb(err, profile);
       });
     }
   )
@@ -36,10 +39,6 @@ var db = require("./models");
 var app = express();
 //Creating new server to integrate with socket.io
 let server = http.createServer(app);
-
-// add avatars
-// app.use('/myAvatars', avatarsMiddleware);
-// app.use('/api/myAvatars', avatarsMiddleware);
 
 //---------
 app.use(express.urlencoded({ extended: true }));
