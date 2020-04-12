@@ -54,7 +54,7 @@ router.post("/api/signup", function(req, res) {
     });
 });
 
-//-------------------passport-github part--comment back in once page is registered with github------------------
+//-------------------passport-github part------------------------
 
 // route middleware for github login
 router.get("/auth/github", passport.authenticate("github"));
@@ -67,6 +67,7 @@ router.get(
     res.redirect("/");
   }
 );
+//--------------------------------------
 
 // Route for logging user out
 router.get("/logout", function(req, res) {

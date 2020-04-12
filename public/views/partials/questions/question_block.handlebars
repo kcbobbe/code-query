@@ -1,12 +1,12 @@
-{{!-- if we use an avatar --}}
-{{!-- <figure class="media-left">
-    <p class="image is-64x64">
-    {{!-- <img src= {{ avatar }} >  --}}
-{{!-- </p>  --}}
-{{!-- </figure> --}}
+
 <div class="card question" data-user={{userId}} data-id={{id}}>
 
 <article class="media questionButtons" data-id={{id}}>
+    <figure class="media-left">
+      <p class="image is-64x64">
+      <svg width="64" height="64" data-jdenticon-value = {{ username }}></svg>
+      </p>
+    </figure>
     <div class="media-content">
         <div class="content">
             <p>

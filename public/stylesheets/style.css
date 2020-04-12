@@ -6,13 +6,10 @@ form.login {
 /* .navbar {
   background-color: black!important;
 }
-
 .navbar-burger,
 .navbar-title{
   color: white!important;
-
 }
-
 .navbar-link{
   color: white!important;
 } */
@@ -159,4 +156,10 @@ select,
 
 .is-green-text{
   color: #008571;
+}
+
+svg{
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  border-color:#008571!important;
+
 }
