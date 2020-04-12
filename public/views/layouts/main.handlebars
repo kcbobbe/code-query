@@ -34,9 +34,7 @@
         <div class="navbar-start">
          
 {{!-- add links so new partial appears in body when clicked          --}}
-          {{!-- <a class="navbar-item" href="#">
-            Questions
-          </a> --}}
+         
     
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
@@ -59,15 +57,17 @@
               <a class="navbar-item QTag" id="Databases">
                 <i class="fa fa-database fa-fw"></i>Databases
               </a>
-              <hr4>
-              <a class="navbar-item memberSection">
+              {{!-- <a class="navbar-item memberSection">
                 Go To Member Section
-              </a>
+              </a> --}}
             </div>
           </div>
         </div>
     
         <div class="navbar-end">
+           <a class="navbar-item hide yourProfile memberSection" href="#">
+            Your Profile
+          </a>
           <div class="navbar-item">
             <div class="buttons">
               <a id="signupButton" class="button hide" href="/signup">

@@ -2,12 +2,14 @@ $(document).ready(function() {
   $.get("/api/user_data", function(req) {
     if (req.id) {
       // The user is not logged in, send back an empty object
+      $(".yourProfile").removeClass("hide")
       $("#logoutButton").removeClass("hide");
       $("#loginButton").addClass("hide");
       $("#signupButton").addClass("hide");
       $("#askQuestion").removeClass("hide");
       $(".replyButton").removeClass("hide");
     } else {
+      $("#yourProfile").addClass("hide")
       $("#logoutButton").addClass("hide");
       $("#loginButton").removeClass("hide");
       $("#signupButton").removeClass("hide");
