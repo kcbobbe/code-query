@@ -3,30 +3,8 @@ form.login {
   margin-top: 50px;
 }
 
-/* .navbar {
-  background-color: black!important;
-}
-.navbar-burger,
-.navbar-title{
-  color: white!important;
-}
-.navbar-link{
-  color: white!important;
-} */
-
-/* a:hover{
-  background-color: #008571!important;
-  color: white!important;
-} */
-
 .hide{
   display:none;
-}
-
-body{
-  /* font-family: 'Anonymous Pro', monospace; */
-  /* font-family: 'Raleway', sans-serif; */
-  /* background-color: #F4FDFB; */
 }
 
 .card {
@@ -37,14 +15,12 @@ body{
   margin-bottom: 20px;
   color: #000!important;
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
-  /* border: 1px solid #008571; */
 
 }
 
 .content pre{
   box-shadow: inset 0px 0px 3px #c1c1c1;
   background-color: white;
-  /* border: 1px solid gray; */
 }
 
 
@@ -84,14 +60,9 @@ body{
 
 .hero-body{
   background-color: whitesmoke;
-  /* background-color: #e3f5f0; */
-  /* border: 1px solid #008571; */
-  /* #00D1B2; */
   font-size: 1.2em;
   /* margin:20px; */
   /* box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19); */
-
-
 }
 
 a{
@@ -159,3 +130,18 @@ svg{
   border-color:#008571!important;
 
 }
+
+/* sticky navbar */
+.content {
+  padding: 16px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width:100%;
+}
+.sticky + .content {
+  padding-top: 60px;
+}
+
+/* end sticky navbar */
