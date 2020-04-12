@@ -17,7 +17,7 @@ $(document).ready(function() {
   $("#questionText").empty();
 
   let simplemde = new SimpleMDE({
-    element: $("#questionText")[0],
+    element: $(".askQuestion #questionText")[0],
     placeholder: "Type markdown here...",
     showIcons: ["code", "table"],
     hideIcons: ["side-by-side"]
