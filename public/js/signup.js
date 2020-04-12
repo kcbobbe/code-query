@@ -17,6 +17,17 @@ $(document).ready(function() {
       $("#alert").fadeIn(500);
       return;
     }
+
+    let validUser = validateUser(userData.username);
+
+    if (!validUser) {
+      $("#alert .msg").text(
+        "**Please enter valid Username(starting with letter)"
+      );
+      $("#alert").fadeIn(500);
+      return;
+    }
+
     // If we have an username and password, run the signUpUser function
     signUpUser(userData.username, userData.password);
     usernameInput.val("");
@@ -42,5 +53,14 @@ $(document).ready(function() {
     $("#alert .msg").text("  Username exists!");
     $("#alert").fadeIn(500);
     return;
+  }
+  //Validating the user name consists of letters and not only numbers
+  function validateUser(userName) {
+    var regPassword = /^[a-z][-a-zA-Z0-9$@$#!%*?&]*$/;
+    if (!regPassword.test(userName)) {
+      return false;
+    } else {
+      return true;
+    }
   }
 });
