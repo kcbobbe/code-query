@@ -40,11 +40,11 @@ body{
   margin-bottom: 20px;
   color: #000!important;
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
-  border: 1px solid #008571;
+  /* border: 1px solid #008571; */
 
 }
 
-pre{
+.question pre{
   box-shadow: inset 0px 0px 3px #c1c1c1;
   background-color: white;
   /* border: 1px solid gray; */
@@ -92,7 +92,7 @@ pre{
 .hero-body{
   background-color: whitesmoke;
   /* background-color: #e3f5f0; */
-  border: 1px solid #008571;
+  /* border: 1px solid #008571; */
   /* #00D1B2; */
   font-size: 1.2em;
   /* margin:20px; */
@@ -137,7 +137,7 @@ button,
 
 select,
 .control{
-  border-color:#008571!important;
+  /* border-color:#008571!important; */
 }
 
 .hide {
@@ -146,4 +146,17 @@ select,
 
 .activeUser a {
   color: palevioletred!important;
+}
+
+.category-icon{
+  margin-right:.5em;
+}
+
+.raleway{
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.is-green-text{
+  color: #008571;
 }
