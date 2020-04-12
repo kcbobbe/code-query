@@ -3,7 +3,7 @@ form.login {
   margin-top: 50px;
 }
 
-.navbar {
+/* .navbar {
   background-color: black!important;
 }
 
@@ -15,12 +15,12 @@ form.login {
 
 .navbar-link{
   color: white!important;
-}
+} */
 
-a:hover{
+/* a:hover{
   background-color: #008571!important;
   color: white!important;
-}
+} */
 
 .hide{
   display:none;
