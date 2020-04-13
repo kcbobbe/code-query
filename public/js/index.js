@@ -60,15 +60,17 @@ $(document).ready(function() {
         // $(`${this} > .media-right`).append(newDeleteButton);
         $(this).append(newDeleteButton);
 
-        $(".delete-button").each(() => {
+        $(".delete-button").each(function(index) {
           let qid = $(this).attr("data-id");
-          $(".delete-button").on("click", () => {
-            $.ajax(`/api/questions/${qid}`, {
-              type: "DELETE"
-            }).then(() => {
-              location.reload();
+          $(".delete-button")
+            .eq(index)
+            .on("click", () => {
+              $.ajax(`/api/questions/${qid}`, {
+                type: "DELETE"
+              }).then(() => {
+                location.reload();
+              });
             });
-          });
         });
       }
     });
