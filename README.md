@@ -4,7 +4,7 @@
 
 ## Table of Content
 
-*[User Story](#Userstory)
+*[User Story](#User)
 
 *[Description](#Description)
 
@@ -28,8 +28,8 @@ So that I can ask questions in a judgment-free space
 
 ## Description
 
-'Cody Query' is an application that allows bootcamp students to ask questions to and answer question from their peers in a friendly environment. Every user can see the recently asked questions and answers. In the navbar the user can select to see only questions related to a certain topic. If the user signs up there are additional features, such as the ability to ask and answer a questions using markdown features or going to the own profile page, where all asked questions are displayed and can also be deleted. Due to the use of socket.io the asked questions or responses appear without a page refresh and are immediately available tot the user. 
-This application was created using MySQL, Sequelize, Node, Express, Handlebars, Socket.io, Passport, Jdenticon, Simplemde, Markdown-it and moment.js.
+'Cody Query' is an application that allows bootcamp students to ask questions and answer questions from their peers in a friendly environment. Every user can see the recently asked questions and answers. In the navbar, the user can select to see only questions tagged with a certain topic(eg. 'HTML'). If the user signs up, there are additional features, such as the ability to ask and answer questions using our rich text-editor.Also, every user has a profile page, where all the user's asked questions are displayed and can also be deleted. Using socket.io, the asked questions or responses appear in a real-time environment to all clients connected to the server. 
+This application was created using MySQL, Sequelize, Node, Express, Handlebars, Socket.io, Passport, Jdenticon, Simplemde, Markdown-it, Jest and moment.js.
 
 ## Installation
 
