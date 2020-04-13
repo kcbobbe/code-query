@@ -47,7 +47,7 @@ Git pull and run the following command:
 
 ## Deployed Link:
 
-The heroku deployed link: <a href="https://code--query.herokuapp.com/">Mentor Match</a>.
+The heroku deployed link: <a href="https://code--query.herokuapp.com/">Code Query</a>.
 
 ![](/public/assets/images/CQ.gif)
 
