@@ -9,6 +9,7 @@ const http = require("http");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 const socketIO = require("socket.io");
+const moment = require("moment");
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8085;
@@ -29,7 +30,17 @@ app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
 //handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main",
+    helpers: {
+      formatDate: function(date) {
+        return moment(date).calendar();
+      }
+    }
+  })
+);
 app.set("view engine", "handlebars");
 app.set("views", path.resolve("public", "views"));
 

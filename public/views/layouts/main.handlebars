@@ -34,9 +34,6 @@
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
          
-{{!-- add links so new partial appears in body when clicked          --}}
-         
-    
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
               Question Categories
@@ -66,12 +63,15 @@
         </div>
     
         <div class="navbar-end">
+          <a class="navbar-item" href="/">
+            <i style="margin-right: .5em" class="fas fa-home"></i>Home
+          </a>
            <a class="navbar-item hide yourProfile memberSection" href="#">
-            Your Profile
+            <i style="margin-right: .5em; color:palevioletred" class="fas fa-user"></i>Your Profile
           </a>
           <div class="navbar-item">
             <div class="buttons">
-              <a id="signupButton" class="button hide" href="/signup">
+              <a id="signupButton" style="border:none" class="button hide" href="/signup">
                 <strong>Sign up</strong>
               </a>
               <a id="loginButton" class="button is-light hide" href="/login">

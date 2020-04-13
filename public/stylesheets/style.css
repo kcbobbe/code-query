@@ -91,6 +91,11 @@ button,
   font-family: 'Raleway', sans-serif;
 }
 
+.login-signup{
+  max-width: 800px!important;
+  margin:auto;
+}
+
 #signupButton:hover,
 #loginButton:hover{
   background-color: #e3f5f0!important;
@@ -129,7 +134,7 @@ svg{
 }
 
 .padding-x{
-  padding: 1em;
+  margin:1em .5em 1em .5em;
 }
 
 .question-message-bar{
