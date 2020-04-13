@@ -19,7 +19,10 @@
       <div class="media-content">
         <div class="card ask">
         <div class="container">
-          <div class="title raleway" style="padding-top:1em;"> Ask Your Question:</div>
+          <div class="title is-5 raleway" style="padding-top:1em; font-weight:700">
+            Welcome,<span style="color:palevioletred; padding-left:.25em;" class="member-name"></span>
+          </div>
+          <div class="title raleway"> Ask Your Question:</div>
           <form id="questionForm">
             
             <div class="field">
@@ -54,10 +57,14 @@
     </div>
   </div>
   <div class="question-message-bar">
-        {{#if questions.length}}       
-          <div class="title is-4 padding-x">Recently Asked Questions</div>
+        {{#if questions.length}}
+          <div class="container">
+            <div class="title is-4 padding-x raleway">Recently Asked Questions</div>
+          </div>  
           {{else}}
-          <div class="title is-4 padding-x">No Questions Yet.</div>
+          <div class="container">
+            <div class="title is-4 padding-x raleway">No Questions Yet.</div>
+          </div>
         {{/if}}
   </div>
 
