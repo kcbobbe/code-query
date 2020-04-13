@@ -1,4 +1,9 @@
 $(document).ready(function() {
+  const socket = io();
+  //message from server
+  socket.on("newPost", msg => {
+    outputMessage(msg);
+  });
   $.get("/api/user_data", function(req) {
     if (req.id) {
       $(".welcome-hero").addClass("hide");
@@ -54,10 +59,6 @@ $(document).ready(function() {
           <button class="delete delete-button is-danger" data-id=${questionId}></button>
         </div>
         `);
-        // newDeleteButton.addClass("delete-button button is-danger");
-        // newDeleteButton.attr("data-id", questionId);
-        //Adding delete button in the card and calling AJAX delete if pressed
-        // $(`${this} > .media-right`).append(newDeleteButton);
         $(this).append(newDeleteButton);
 
         $(".delete-button").each(function(index) {
@@ -68,6 +69,8 @@ $(document).ready(function() {
               $.ajax(`/api/questions/${qid}`, {
                 type: "DELETE"
               }).then(() => {
+                //Broadcast the question
+                socket.emit("newPost", "question deleted");
                 location.reload();
               });
             });
@@ -75,4 +78,9 @@ $(document).ready(function() {
       }
     });
   });
+  //Output message on DOM
+  function outputMessage(msg) {
+    console.log("got new event" + msg);
+    location.reload();
+  }
 });
