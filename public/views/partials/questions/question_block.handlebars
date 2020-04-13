@@ -1,4 +1,4 @@
-
+{{!-- Page to display all questions  --}}
 <div class="card" data-id={{id}}>
 
 <article class="media questionButtons question" data-user={{userId}} data-id={{id}}>
@@ -23,25 +23,24 @@
                 <div class="field">
                     <div class="control">
                         <textarea id=answerText{{id}} class="answerText"></textarea>
+                        <br>
+                        <button class="answerSubmit button ">Submit<i class="fa fa-paper-plane fa-fw"></i></button>
+                        <br>
                     </div>
-                    <br>
-                    <button class="answerSubmit button ">Submit<i class="fa fa-paper-plane fa-fw"></i></button>
-                    <br>
-                </div>
-            </form>
+                </form>
+            </div>
+            <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
+                {{#if Answers.length}}         
+                    {{#each Answers}}
+                    {{> answers/answer_block}}
+                    {{/each}}
+                {{else}}
+                        <p>No replies yet</p>
+                {{/if}}
+                <a class="hideReplies" data-id={{id}}>Hide Replies</a>
+            </article>
         </div>
-        <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
-              {{#if Answers.length}}         
-                {{#each Answers}}
-                  {{> answers/answer_block}}
-                {{/each}}
-              {{else}}
-                    <p>No replies yet</p>
-              {{/if}}
-            <a class="hideReplies" data-id={{id}}>Hide Replies</a>
-        </article>
-    </div>
-</article>
+    </article>
 </div>
 
 
