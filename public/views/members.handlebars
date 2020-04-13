@@ -1,31 +1,15 @@
-  <div class="container is-fluid">
-    <div class="box" style="margin-top: 2em">
-      <h2 class="title">Welcome <span class="member-name"></span></h2>
-      <a class="button" href="/logout">Logout</a>
-    </div>
+{{!-- Member's specific page  --}}
+<div class="container is-fluid">
+  <div class="box" style="margin-top: 2em">
+    <h2 class="title">Welcome <span class="member-name"></span></h2>
+    <a class="button" href="/logout">Logout</a>
   </div>
+</div>
+ 
+<div>
+  {{#each questions}}
+    {{> questions/question_block}}
+  {{/each}}
+</div>
   
-
-  <div>
-    {{#each questions}}
-      {{> questions/question_block}}
-    {{/each}}
-  </div>
-  
-  
-  {{!-- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
-</nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-      </div>
-    </div>
-  </div> --}}
+ 

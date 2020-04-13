@@ -1,47 +1,46 @@
-
+{{!-- Page to display all questions  --}}
 <div class="card" data-id={{id}}>
-
-<article class="media questionButtons question" data-user={{userId}} data-id={{id}}>
-    <figure class="media-left">
-      <p class="image is-64x64">
-      <svg width="64" height="64" data-jdenticon-value = {{ username }}></svg>
-      </p>
-    </figure>
-    <div class="media-content">
-        <div class="content">
-            <p>
-                <em>By: <span data-user={{userId}} class="userUsername"><a>{{username}}</a></span></em> on {{dateTime}}
-                <br><span class="postedText"> {{{questionText}}} </span><br>
-                <span class="tag is-dark">{{questionTag}}</span> |
-                <a class="viewReplies" data-id={{id}}>View Replies</a> |
-                <a class="showReplyForm replyButton hide" data-id={{id}}>Reply</a>
-                {{!-- {{#if username logged in}}delete button{{/if}} --}}
-            </p>
-        </div>
-        <div class="replyForm" id=replyForm{{id}} style="display:none">
-            <form class="answerForm" data-id={{id}}>
-                <div class="field">
-                    <div class="control">
-                        <textarea id=answerText{{id}} class="answerText"></textarea>
+    <article class="media questionButtons question" data-user={{userId}} data-id={{id}}>
+        <figure class="media-left">
+        <p class="image is-64x64">
+        <svg width="64" height="64" data-jdenticon-value = {{ username }}></svg>
+        </p>
+        </figure>
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <em>By: <span data-user={{userId}} class="userUsername"><a>{{username}}</a></span></em> on {{dateTime}}
+                    <br><span class="postedText"> {{{questionText}}} </span><br>
+                    <span class="tag is-dark">{{questionTag}}</span> |
+                    <a class="viewReplies" data-id={{id}}>View Replies</a> |
+                    <a class="showReplyForm replyButton hide" data-id={{id}}>Reply</a>
+                    {{!-- {{#if username logged in}}delete button{{/if}} --}}
+                </p>
+            </div>
+            <div class="replyForm" id=replyForm{{id}} style="display:none">
+                <form class="answerForm" data-id={{id}}>
+                    <div class="field">
+                        <div class="control">
+                            <textarea id=answerText{{id}} class="answerText"></textarea>
+                        </div>
+                        <br>
+                        <button class="answerSubmit button ">Submit<i class="fa fa-paper-plane fa-fw"></i></button>
+                        <br>
                     </div>
-                    <br>
-                    <button class="answerSubmit button ">Submit<i class="fa fa-paper-plane fa-fw"></i></button>
-                    <br>
-                </div>
-            </form>
+                </form>
+            </div>
+            <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
+                {{#if Answers.length}}         
+                    {{#each Answers}}
+                    {{> answers/answer_block}}
+                    {{/each}}
+                {{else}}
+                        <p>No replies yet</p>
+                {{/if}}
+                <a class="hideReplies" data-id={{id}}>Hide Replies</a>
+            </article>
         </div>
-        <article class="repliesContainer media" id=repliesContainer{{id}} style="display:none">
-              {{#if Answers.length}}         
-                {{#each Answers}}
-                  {{> answers/answer_block}}
-                {{/each}}
-              {{else}}
-                    <p>No replies yet</p>
-              {{/if}}
-            <a class="hideReplies" data-id={{id}}>Hide Replies</a>
-        </article>
-    </div>
-</article>
+    </article>
 </div>
 
 

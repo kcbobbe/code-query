@@ -1,3 +1,4 @@
+{{!-- This page get displayed to guests as well as to members when logged in --}}
 <section class="hero is-medium welcome-hero hide">
   <div class="hero-body">
     <div class="container">
@@ -12,9 +13,7 @@
   </div>
 </section>
 
-
-
-  <div id="askQuestion" class="askQuestion hide">
+<div id="askQuestion" class="askQuestion hide">
     <div class="card-content">
       <div class="media-content">
         <div class="card ask">
@@ -52,16 +51,16 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="question-message-bar">
+</div>
+<div class="question-message-bar">
         {{#if questions.length}}       
           <div class="title is-4 padding-x">Recently Asked Questions</div>
           {{else}}
           <div class="title is-4 padding-x">No Questions Yet.</div>
         {{/if}}
-  </div>
+</div>
 
-  <div class="container is-fullwidth">
+<div class="container is-fullwidth">
   <div class="allQuestion">
     <div class="card-content">
       <div class="media-content">
