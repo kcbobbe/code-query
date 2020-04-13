@@ -156,3 +156,22 @@ svg{
 }
 
 /* end sticky navbar */
+
+@media only screen and (max-width: 414px) {
+  svg{
+    height: 30px;
+    width:30px
+  }
+  .is-64x64{
+    height: 30px!important;
+    width: 30px!important;
+  }
+  .is-48x48{
+    height: 30px!important;
+    width: 30px!important;
+  }
+  .content{
+    padding: 0;
+  }
+  
+}
