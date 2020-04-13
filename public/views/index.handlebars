@@ -13,14 +13,13 @@
 </section>
 
 
-<div class="container">
 
   <div id="askQuestion" class="askQuestion hide">
     <div class="card-content">
       <div class="media-content">
-        <br>
         <div class="card ask">
-          <div class="title raleway"> Ask Your Question:</div>
+        <div class="container">
+          <div class="title raleway" style="padding-top:1em;"> Ask Your Question:</div>
           <form id="questionForm">
             
             <div class="field">
@@ -49,19 +48,24 @@
               </div>
             </div>
           </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="question-message-bar">
+        {{#if questions.length}}       
+          <div class="title is-4 padding-x">Recently Asked Questions</div>
+          {{else}}
+          <div class="title is-4 padding-x">No Questions Yet.</div>
+        {{/if}}
+  </div>
 
+  <div class="container is-fullwidth">
   <div class="allQuestion">
     <div class="card-content">
       <div class="media-content">
-        {{#if questions.length}}       
-          <div class="title is-6">Recently Asked Questions</div>
-          {{else}}
-          <div class="title is-6">No Questions Yet.</div>
-        {{/if}}
+
           {{#each questions}}
             {{> questions/question_block}}
           {{/each}}

@@ -9,15 +9,16 @@ form.login {
 
 .card {
   font-family: 'Anonymous Pro', monospace;
-  /* background-color: #e3f5f0!important; */
   background-color: whitesmoke!important;
   padding: 20px!important;
   margin-bottom: 20px;
   color: #000!important;
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
-
 }
 
+.card-content {
+  padding: 0!important;
+}
 .content pre{
   box-shadow: inset 0px 0px 3px #c1c1c1;
   background-color: white;
@@ -29,7 +30,9 @@ form.login {
 }
 
 .ask{
-  background-color: whitesmoke!important;
+  box-shadow:none!important;
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(245,245,245,0) 100%)!important;
 }
 
 .member-name{
@@ -67,11 +70,6 @@ form.login {
 
 a{
   color: #008571;
-}
-
-.navbar-item:hover,
-{
-  background-color: #008571!important;
 }
 
 #alert {
@@ -118,7 +116,6 @@ select,
 
 .raleway{
   font-family: 'Raleway', sans-serif;
-
 }
 
 .is-green-text{
@@ -131,6 +128,15 @@ svg{
 
 }
 
+.padding-x{
+  padding: 1em;
+}
+
+.question-message-bar{
+  margin-bottom: 3em;
+  border-top: 2px solid #eeeeee;
+  border-bottom: 2px solid #eeeeee
+}
 /* sticky navbar */
 .content {
   padding: 16px;
