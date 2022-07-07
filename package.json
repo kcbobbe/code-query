@@ -24,7 +24,7 @@
     "jdenticon": "^2.2.0",
     "jest": "^25.2.7",
     "markdown-it": "^10.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mysql": "^2.18.1",
     "mysql2": "^1.6.5",
     "nodemon": "^2.0.3",
